@@ -1,0 +1,793 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="dvwa-xss, keywords">
+    <meta name="description" content="Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>dvwa-xss | only_free blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">only_free blog</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>档案</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/mubiao" class="waves-effect waves-light">
+            
+            <i class="fa fa-volume-up"></i>
+            
+            <span>目标</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">only_free blog</div>
+        <div class="logo-desc">
+            
+            十年寒窗无人问，一举成名天下知。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                档案
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/mubiao" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-volume-up"></i>
+                
+                目标
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        dvwa-xss
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+            <span class="chip bg-color"><span id="busuanzi_value_page_pv"></span> ℃</span>
+                
+                <a href="/tags/wd/" target="_blank">
+                    <span class="chip bg-color">wd</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-06
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Dvwa是一个网站渗透测试演练平台，里面包括了Xss攻击,Sql注入攻击，Csrf漏洞、文件上传漏洞、命令注入漏洞等，而且每个漏洞都分为<code>Low(低等级)、Medium( 中等级 )、High( 高等级 )、Impossible( 没漏洞等级 )</code></p>
+<p>下载过程和安装过程网上可以找到我就不讲解了。</p>
+<p>首先将<code>Dvwa</code>等级设置成<code>Low</code>:</p>
+<p><img src="http://static.zybuluo.com/1kbfree/xhlnfqib3ib7m5jpq5s0k9us/image_1ce8m63q6g1s5ab1ef51ilf92m9.png" alt="image_1ce8m63q6g1s5ab1ef51ilf92m9.png-135.5kB"></p>
+<hr>
+<h2 id="Low"><a href="#Low" class="headerlink" title="Low"></a>Low</h2><h3 id="Xss反射型："><a href="#Xss反射型：" class="headerlink" title="Xss反射型："></a>Xss反射型：</h3><p><img src="http://static.zybuluo.com/1kbfree/bzktsumqyk5cl12z0z15nojx/image_1ce8mao1la4233k77t19h21v82m.png" alt="image_1ce8mao1la4233k77t19h21v82m.png-203.8kB"><br><em>当输入<code>hello</code>在输入框点击Submit后，会输出一个<code>Hello iamfree</code>，那么我们来看看这是如何实现的</em></p>
+<h4 id="实现的代码："><a href="#实现的代码：" class="headerlink" title="实现的代码："></a>实现的代码：</h4><p><img src="http://static.zybuluo.com/1kbfree/28z6tmahfg6x1z7reai804j1/image_1ce8n2a0ijtjgs8iitt4a1ou09.png" alt="image_1ce8n2a0ijtjgs8iitt4a1ou09.png-147.4kB"><br><em>因为这是<code>Low</code>级别的，所以我们可以清楚的看见这里没有做任何过滤，我们只需要输入一串而已的Js代码就可以实现盗取别人Cookie，做钓鱼之类的功能，下面我来简单的演示一下~</em></p>
+<p>输入<code>&lt;img src=x onerror=alert(&#39;iamfree&#39;)&gt;</code>后，Url变成<code>http://127.0.0.1/dvwa/vulnerabilities/xss_r/?name=%3Cimg+src%3Dx+onerror%3Dalert%28%27iamfree%27%29%3E#</code>，效果:<br><img src="http://static.zybuluo.com/1kbfree/hl67ru1a4l4ltyvhi82dj0bw/image_1ce8naell1jlrkv6s1214dh7n7m.png" alt="image_1ce8naell1jlrkv6s1214dh7n7m.png-130.1kB"></p>
+<p><code>&lt;img src=x onerror=alert(&#39;iamfree&#39;)&gt;</code>的src表示img图片的地址，可以是本地也可以是Url形式;onerror的意思是如果图片没有正常显示的话就会执行<code>=</code>后面的代码，因为这里<code>src=x</code>而<code>x</code>是不存在的，所以无法显示，就会报错了~</p>
+<h3 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h3><p><strong>这里的话防御很简单的，只需要一个函数即可：</strong><br><img src="http://static.zybuluo.com/1kbfree/n875b1a8nh9rciqc7w66vxku/image_1ce8nikp01hm91qse12112ra2802p.png" alt="image_1ce8nikp01hm91qse12112ra2802p.png-53.3kB"></p>
+<p><strong>继续访问刚才的Url(<code>http://127.0.0.1/dvwa/vulnerabilities/xss_r/?name=%3Cimg+src%3Dx+onerror%3Dalert%28%27iamfree%27%29%3E#</code>)，看看是否有效:</strong><br><img src="http://static.zybuluo.com/1kbfree/3y12i2skpud63a1qgec93sxz/image_1ce8nph771gbkh9n1v6q16p41ho736.png" alt="image_1ce8nph771gbkh9n1v6q16p41ho736.png-175.7kB"><br><em>成功的防止了Xss反射型攻击了~</em></p>
+<h3 id="htmlspecialchars函数的官方解释"><a href="#htmlspecialchars函数的官方解释" class="headerlink" title="htmlspecialchars函数的官方解释:"></a>htmlspecialchars函数的官方解释:</h3><p><img src="http://static.zybuluo.com/1kbfree/piy4p2lkq0h81v0d1u4y5mb7/image_1ce8nug1jgbj1iib1hl91ii51vic3j.png" alt="image_1ce8nug1jgbj1iib1hl91ii51vic3j.png-137.1kB"></p>
+<h2 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h2><h3 id="查看Medium源代码"><a href="#查看Medium源代码" class="headerlink" title="查看Medium源代码:"></a>查看<code>Medium</code>源代码:</h3><p><img src="http://static.zybuluo.com/1kbfree/lcvg5jbwdqdbmyxlai363f9l/image_1ceaj53i93ri2t12be93ndtqp.png" alt="image_1ceaj53i93ri2t12be93ndtqp.png-140.1kB"></p>
+<p><strong>点开后是这样的：</strong><br><img src="http://static.zybuluo.com/1kbfree/bb6yzgt81wtl2guv6u9yus7l/image_1ceaj6a2b9ti1o1ee8s1dh31p5v16.png" alt="image_1ceaj6a2b9ti1o1ee8s1dh31p5v16.png-148.6kB"></p>
+<p>代码：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token function">header</span> <span class="token punctuation">(</span><span class="token string">"X-XSS-Protection: 0"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Is there any input?</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">array_key_exists</span><span class="token punctuation">(</span> <span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token variable">$_GET</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token keyword">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Get input</span>
+    <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token function">str_replace</span><span class="token punctuation">(</span> <span class="token string">'&lt;script>'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Feedback for end user</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;pre>Hello ${name}&lt;/pre>"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token delimiter">?></span> 
+</code></pre>
+<p><em>这里的代码部分也很好理解，比上一章仅仅多了一个过滤，下面来详细讲解一下。</em></p>
+<blockquote>
+<p><code>if( array_key_exists( &quot;name&quot;, $_GET ) &amp;&amp; $_GET[ &#39;name&#39; ] != NULL )</code>这段代码的意思是，如果$_GET中有name这个key并且<code>$_GET[ &#39;name&#39; ]</code>的值不为空的话就执行<code>{}</code>里面的代码。<br><code>$name = str_replace( &#39;&lt;script&gt;&#39;, &#39;&#39;, $_GET[ &#39;name&#39; ] );</code>这句话的意思是把<code>$_GET[&#39; name &#39;]</code>中的<code>&lt;script&gt;</code>过滤为空( <em>并不安全</em> ),最后一段代码就是输出Hello+name的值在页面上</p>
+</blockquote>
+<h3 id="看懂代码后，如何利用呢"><a href="#看懂代码后，如何利用呢" class="headerlink" title="看懂代码后，如何利用呢?"></a>看懂代码后，如何利用呢?</h3><p><em>我们在上面看代码的时候明白了，在这个<code>Medium</code>等级中，只做了把<code>&lt;script&gt;</code>字符给过滤了，那么我下面就来演示一下如何绕过</em></p>
+<h4 id="先来输入-lt-script-gt-后看看是否为空"><a href="#先来输入-lt-script-gt-后看看是否为空" class="headerlink" title="先来输入&lt;script&gt;后看看是否为空:"></a>先来输入<code>&lt;script&gt;</code>后看看是否为空:</h4><p><img src="http://static.zybuluo.com/1kbfree/q8ojr60jtlbgd9j0au2ouazt/image_1ceajjf5k1tj96go2gr1g67125m1j.png" alt="image_1ceajjf5k1tj96go2gr1g67125m1j.png-86.9kB"><br><em>可以看到这里的输出是为空的，下面来讲绕过</em></p>
+<h4 id="绕过方法1："><a href="#绕过方法1：" class="headerlink" title="绕过方法1："></a>绕过方法1：</h4><p>在输入框中输入<code>&lt;scr&lt;script&gt;ipt&gt;alert(&#39;iamfree&#39;)&lt;/script&gt;</code>，来看看结果先:</p>
+<p><img src="http://static.zybuluo.com/1kbfree/84iq3szjet2wj8yx7ajecdzh/image_1ceajnhjabo21p1gvvr98fad820.png" alt="image_1ceajnhjabo21p1gvvr98fad820.png-187.2kB"></p>
+<p>解释:<br><img src="http://static.zybuluo.com/1kbfree/kx039acf60sxdjfnf2vo5t8k/image_1ceajudl1146t1oc7g2a6eof402d.png" alt="image_1ceajudl1146t1oc7g2a6eof402d.png-226.2kB"></p>
+<h4 id="绕过方法2"><a href="#绕过方法2" class="headerlink" title="绕过方法2:"></a>绕过方法2:</h4><p>用大写的绕过,输入<code>&lt;SCRIPT&gt;alert(&#39;iamfree&#39;)&lt;/SCRIPT&gt;</code><br><img src="http://static.zybuluo.com/1kbfree/m11mwkcv0os5q4zlmrdu0w06/image_1ceb2ofbv8vt1onl1ksphkse9v9.png" alt="image_1ceb2ofbv8vt1onl1ksphkse9v9.png-99.1kB"></p>
+<h3 id="如何防御-1"><a href="#如何防御-1" class="headerlink" title="如何防御"></a>如何防御</h3><h4 id="防御方法1："><a href="#防御方法1：" class="headerlink" title="防御方法1："></a>防御方法1：</h4><p>其实防御的方法也和上篇一样，但还有一个也很棒的方法哟。<br><img src="http://static.zybuluo.com/1kbfree/gqffm3fwqdt4k6vs7pmzer9u/image_1cealoccsqkbaqe36k11o114j23n.png" alt="image_1cealoccsqkbaqe36k11o114j23n.png-92.4kB"></p>
+<p>代码:</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token function">header</span> <span class="token punctuation">(</span><span class="token string">"X-XSS-Protection: 0"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Is there any input?</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token function">array_key_exists</span><span class="token punctuation">(</span> <span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token variable">$_GET</span> <span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token string">'name'</span> <span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token keyword">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Get input</span>
+    <span class="token comment" spellcheck="true">// $name = str_replace( '</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span></span><span class="token string">', '</span>xss<span class="token string">', $_GET[ '</span>name' <span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">foreach</span> <span class="token punctuation">(</span> <span class="token variable">$_GET</span> <span class="token keyword">as</span> <span class="token variable">$key</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable">$value</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//把$_GET数组里的值分成$key和$value</span>
+        <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span> <span class="token variable">$key</span> <span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span> <span class="token variable">$value</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//把$_GET数组中$key对应的$value值html实例化，并且赋值给$name变量</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// Feedback for end user</span>
+    <span class="token variable">$html</span> <span class="token punctuation">.</span><span class="token operator">=</span> <span class="token string">"&lt;pre>Hello ${name}&lt;/pre>"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token delimiter">?></span>
+
+</code></pre>
+<p><img src="http://static.zybuluo.com/1kbfree/a5wvesn1t9741djg96556kmi/image_1ceall6lr1hh9v331eodlhs1a9t2q.png" alt="image_1ceall6lr1hh9v331eodlhs1a9t2q.png-75.9kB"></p>
+<h4 id="防御方法2："><a href="#防御方法2：" class="headerlink" title="防御方法2："></a>防御方法2：</h4><p><img src="http://static.zybuluo.com/1kbfree/l0deuo57o271iokpaxa2nq9x/image_1ceam2i9s1v1m18m8be116tn1vpn4n.png" alt="image_1ceam2i9s1v1m18m8be116tn1vpn4n.png-93.1kB"></p>
+<p>只需要加上一条<code>preg_replace( &#39;/&lt;(.*)s(.*)c(.*)r(.*)i(.*)p(.*)t/i&#39;, &#39;&#39;, $_GET[ &#39;name&#39; ] )</code>，这也是<code>high</code>的防御方法</p>
+<p><img src="http://static.zybuluo.com/1kbfree/z03p7xg6vp5riplabe5q7ti5/image_1ceam65gk1rn8140916so14nf1rfd54.png" alt="image_1ceam65gk1rn8140916so14nf1rfd54.png-64.4kB"></p>
+<h2 id="htmlspecialchars介绍"><a href="#htmlspecialchars介绍" class="headerlink" title="htmlspecialchars介绍"></a>htmlspecialchars介绍</h2><blockquote>
+<p>htmlspecialchars — 将特殊字符转换为 HTML 实体</p>
+</blockquote>
+<h3 id="执行转换表"><a href="#执行转换表" class="headerlink" title="执行转换表"></a>执行转换表</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">替换后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&amp; （和号）</td>
+<td style="text-align:center">成为 <code>&amp;amp;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">“ （双引号）</td>
+<td style="text-align:center">成为 <code>&amp;quot;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">‘ （单引号）</td>
+<td style="text-align:center">成为 <code>&#39;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">&lt; （小于）</td>
+<td style="text-align:center">成为 <code>&amp;lt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">> （大于）</td>
+<td style="text-align:center">成为 <code>&amp;gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="未过滤"><a href="#未过滤" class="headerlink" title="未过滤"></a>未过滤</h3><p>先看一段代码简单的代码：</p>
+<pre class=" language-php"><code class="language-php"><span class="token markup"><span class="token doctype">&lt;!DOCTYPE html></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span></span>Demo<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span></span>
+    <span class="token delimiter">&lt;?php</span>
+        <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token delimiter">?></span>
+
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span></span>你好，<span class="token delimiter">&lt;?php</span> <span class="token keyword">echo</span> <span class="token variable">$name</span><span class="token punctuation">;</span><span class="token delimiter">?></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<p>访问<code>http://127.0.0.1/myphp/demo.php?name=1</code>:</p>
+<p><img src="http://static.zybuluo.com/1kbfree/al7qk4pjqlion3hbqsw4ierb/image_1ceefa1be1bbm1rnk1mnt1jn019nc9.png" alt="image_1ceefa1be1bbm1rnk1mnt1jn019nc9.png-86.4kB"></p>
+<p>访问<code>http://127.0.0.1/myphp/demo.php?name=&lt;img src=x&gt;</code>:</p>
+<p><img src="http://static.zybuluo.com/1kbfree/au5kj4jajtjmra5kiy2c0jft/image_1ceefbiqtarl1pcuc268a01lm7m.png" alt="image_1ceefbiqtarl1pcuc268a01lm7m.png-33.9kB"></p>
+<p><em>可见，这个是存在Xss的，那么我们用<code>htmlspecialchars</code>函数来过滤~</em></p>
+<h3 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h3><pre class=" language-php"><code class="language-php"><span class="token markup"><span class="token doctype">&lt;!DOCTYPE html></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span></span>Demo<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span></span>
+    <span class="token delimiter">&lt;?php</span>
+        <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span> <span class="token variable">$name</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token delimiter">?></span>
+
+    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span></span>你好，<span class="token delimiter">&lt;?php</span> <span class="token keyword">echo</span> <span class="token variable">$name</span><span class="token punctuation">;</span><span class="token delimiter">?></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<p>继续访问<code>http://127.0.0.1/myphp/demo.php?name=&lt;img src=x&gt;</code>:</p>
+<p><img src="http://static.zybuluo.com/1kbfree/80yqz9yz6403402w5i9qx44q/image_1ceefgvqvh1ta2riv01papfcb13.png" alt="image_1ceefgvqvh1ta2riv01papfcb13.png-34.8kB"></p>
+<p><em>看到这里，你们就会好奇了，为什么会直接把输入的内容输出出来，而不是以代码被解析？我们打开审查元素看一看(F12)</em></p>
+<p><img src="http://static.zybuluo.com/1kbfree/vk4ukytvdztquz76v0qr25zf/image_1ceefjr3mik51606kc21ete15ct1g.png" alt="image_1ceefjr3mik51606kc21ete15ct1g.png-31.9kB"></p>
+<p><em>我们可以发现这里是把<code>&lt;</code>变成了<code>&amp;lt;</code>,把’&gt;’变成了<code>&amp;gt;</code>，从而导致了代码只会原样输出而不会当成代码来编译</em></p>
+<p>如果你还困惑的，我再给你看一段代码:</p>
+<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Demo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>你好，<span class="token entity" title="&lt;">&amp;lt;</span>img src=x<span class="token entity" title="&gt;">&amp;gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span> <span class="token comment" spellcheck="true">&lt;!-- 注意看这里 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>访问<code>http://127.0.0.1/myphp/demo.php</code>:</p>
+<p><img src="http://static.zybuluo.com/1kbfree/eeeo1h0i9gjlamr1ctt17uud/image_1ceefpck81ibnca2re9bvb1tpd1t.png" alt="image_1ceefpck81ibnca2re9bvb1tpd1t.png-74kB"></p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://only-free.github.into" class="b-link-green">only_free blog</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/01/06/dvwa-xss/" class="b-link-green">dvwa-xss</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'e4a00225a8ce0411166b',
+        clientSecret: '1d6d28b5dffe48a2a0c13a8417df522474c99103',
+        repo: 'only-free.github.io',
+        owner: 'only-free',
+        admin: "only-free",
+        id: '2019-01-06T11-21-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2019/01/10/mei-zhou-tui-jian-yi-you-mo-de-fang-shi-guo-yi-sheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="[每周推荐]《以幽默的方式过一生》">
+                        
+                        <span class="card-title">[每周推荐]《以幽默的方式过一生》</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">介绍《以幽默的方式过一生》是中信出版社在2017年6月出版的图书，作者是琢磨先生
+作者介绍琢磨先生，原名郭城，财富管理专家，新锐经济学者，一位罕见的能将哲学、心理学和经济学融会贯通的人，被媒体评价为“人性的手术刀，又给人温暖向善的力量。”
+</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            only_free
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/书籍推荐/" target="_blank">
+                        <span class="chip bg-color">书籍推荐</span>
+                    </a>
+                    
+                    <a href="/tags/读后感/" target="_blank">
+                        <span class="chip bg-color">读后感</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/12/27/xian-zhuang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="现状">
+                        
+                        <span class="card-title">现状</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/生活/" class="post-category" target="_blank">
+                                    生活
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/感慨/" target="_blank">
+                        <span class="chip bg-color">感慨</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">TOC</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            在心灵的深处，敞开的希望是自由。
+            <br> 本站总访问 <span id="busuanzi_value_site_pv"></span> 次
+        </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="col s12 m4 l4 social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</body>
+</html>

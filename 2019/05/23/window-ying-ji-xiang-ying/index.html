@@ -1,0 +1,725 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Window应急响应, keywords">
+    <meta name="description" content="排查方法1. 开机启动项是否存在异常文件2. 浏览器浏览痕迹、浏览器下载文件、浏览器cookie信息3. 各个盘下的temp相关目录下查看有无异常文件4. 通过对文件右键属性即可看到详细的时间（修改时间在创建时间之前明显是可疑文件）5. 查">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Window应急响应 | only_free blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">only_free blog</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>档案</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/mubiao" class="waves-effect waves-light">
+            
+            <i class="fa fa-volume-up"></i>
+            
+            <span>目标</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">only_free blog</div>
+        <div class="logo-desc">
+            
+            十年寒窗无人问，一举成名天下知。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                档案
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/mubiao" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-volume-up"></i>
+                
+                目标
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Window应急响应
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+            <span class="chip bg-color"><span id="busuanzi_value_page_pv"></span> ℃</span>
+                
+                <a href="/tags/应急响应/" target="_blank">
+                    <span class="chip bg-color">应急响应</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-05-23
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="排查方法"><a href="#排查方法" class="headerlink" title="排查方法"></a>排查方法</h2><h4 id="1-开机启动项是否存在异常文件"><a href="#1-开机启动项是否存在异常文件" class="headerlink" title="1. 开机启动项是否存在异常文件"></a>1. 开机启动项是否存在异常文件</h4><h4 id="2-浏览器浏览痕迹、浏览器下载文件、浏览器cookie信息"><a href="#2-浏览器浏览痕迹、浏览器下载文件、浏览器cookie信息" class="headerlink" title="2. 浏览器浏览痕迹、浏览器下载文件、浏览器cookie信息"></a>2. 浏览器浏览痕迹、浏览器下载文件、浏览器<code>cookie</code>信息</h4><h4 id="3-各个盘下的temp相关目录下查看有无异常文件"><a href="#3-各个盘下的temp相关目录下查看有无异常文件" class="headerlink" title="3. 各个盘下的temp相关目录下查看有无异常文件"></a>3. 各个盘下的<code>temp</code>相关目录下查看有无异常文件</h4><h4 id="4-通过对文件右键属性即可看到详细的时间（修改时间在创建时间之前明显是可疑文件）"><a href="#4-通过对文件右键属性即可看到详细的时间（修改时间在创建时间之前明显是可疑文件）" class="headerlink" title="4. 通过对文件右键属性即可看到详细的时间（修改时间在创建时间之前明显是可疑文件）"></a>4. 通过对文件右键属性即可看到详细的时间（修改时间在创建时间之前明显是可疑文件）</h4><h4 id="5-查看用户recent相关文件，通过分析最近打开分析可疑文件"><a href="#5-查看用户recent相关文件，通过分析最近打开分析可疑文件" class="headerlink" title="5. 查看用户recent相关文件，通过分析最近打开分析可疑文件"></a>5. 查看用户<code>recent</code>相关文件，通过分析最近打开分析可疑文件</h4><h4 id="6-看最新创建的文件来查找可疑文件"><a href="#6-看最新创建的文件来查找可疑文件" class="headerlink" title="6. 看最新创建的文件来查找可疑文件"></a>6. 看最新创建的文件来查找可疑文件</h4><p><img src="http://static.zybuluo.com/1kbfree/w87rf67w9im9rrq3yoijbmmu/image_1db0vh6sdikt8m13vq101516vf9.png" alt="image_1db0vh6sdikt8m13vq101516vf9.png-60.5kB"></p>
+<h4 id="7-关键字匹配，通过确定后的入侵时间，以及webshell或js文件的关键字"><a href="#7-关键字匹配，通过确定后的入侵时间，以及webshell或js文件的关键字" class="headerlink" title="7. 关键字匹配，通过确定后的入侵时间，以及webshell或js文件的关键字"></a>7. 关键字匹配，通过确定后的入侵时间，以及<code>webshell</code>或<code>js</code>文件的关键字</h4><p><img src="http://static.zybuluo.com/1kbfree/eqapaw19wunayh7gqv4t0723/image_1db0vtrurlo318i61tg31uir1vplm.png" alt="image_1db0vtrurlo318i61tg31uir1vplm.png-194.8kB"></p>
+<pre><code>findstr /s /i &quot;eval($_&quot; *.php
+查找所有*.php文件中存在&quot;eval($_&quot;的内容
+</code></pre><h4 id="8-进程命令"><a href="#8-进程命令" class="headerlink" title="8. 进程命令"></a>8. 进程命令</h4><p>查看目前的网络连接，定位可疑的<code>ESTABLISHED</code>(<code>tcp</code>连接成功)</p>
+<pre><code>netstat -ano | findstr ESTABLISHED
+</code></pre><p>然后根据进程查看可以的<code>pid</code>然后使用<code>tasklist</code><br><a href="https://blog.csdn.net/wanlixingzhe/article/details/7181165" target="_blank" rel="noopener">https://blog.csdn.net/wanlixingzhe/article/details/7181165</a></p>
+<blockquote>
+<p>小技巧：可以下载火绒来用他们的进程查看，有很详细的内容</p>
+</blockquote>
+<h4 id="9-系统信息"><a href="#9-系统信息" class="headerlink" title="9. 系统信息"></a>9. 系统信息</h4><p>使用<code>set</code>命令查看变量的设置</p>
+<p><code>Windows</code> 的计划任务；</p>
+<p><code>Windows</code> 的帐号信息，如隐藏帐号等</p>
+<p>配套的注册表信息检索查看，<code>SAM</code>文件以及远控软件类</p>
+<p>查看<code>systeminfo</code> 信息，系统版本以及补丁信息</p>
+<p>例如系统的远程命令执行漏洞<code>MS08-067、MS09-001、MS17-010</code>（永恒之蓝）…</p>
+<p>若进行漏洞比对，建议使用<code>Windows-Exploit-Suggester</code></p>
+<p><a href="https://github.com/GDSSecurity/Windows-Exploit-Suggester/" target="_blank" rel="noopener">https://github.com/GDSSecurity/Windows-Exploit-Suggester/</a></p>
+<h4 id="10-后门排查"><a href="#10-后门排查" class="headerlink" title="10. 后门排查"></a>10. 后门排查</h4><p>PC Hunter是一个Windows系统信息查看软件</p>
+<p><a href="http://www.xuetr.com/" target="_blank" rel="noopener">http://www.xuetr.com/</a></p>
+<p>功能列表如下：</p>
+<pre><code>1.进程、线程、进程模块、进程窗口、进程内存信息查看，杀进程、杀线程、卸载模块等功能
+2.内核驱动模块查看，支持内核驱动模块的内存拷贝
+3.SSDT、Shadow SSDT、FSD、KBD、TCPIP、Classpnp、Atapi、Acpi、SCSI、IDT、GDT信息查看，并能检测和恢复ssdt hook和inline hook
+4.CreateProcess、CreateThread、LoadImage、CmpCallback、BugCheckCallback、Shutdown、Lego等Notify Routine信息查看，并支持对这些Notify Routine的删除
+5.端口信息查看，目前不支持2000系统
+6.查看消息钩子
+7.内核模块的iat、eat、inline hook、patches检测和恢复
+8.磁盘、卷、键盘、网络层等过滤驱动检测，并支持删除
+9.注册表编辑
+10.进程iat、eat、inline hook、patches检测和恢复
+11.文件系统查看，支持基本的文件操作
+12.查看（编辑）IE插件、SPI、启动项、服务、Host文件、映像劫持、文件关联、系统防火墙规则、IME
+13.ObjectType Hook检测和恢复
+14.DPC定时器检测和删除
+15.MBR Rootkit检测和修复
+16.内核对象劫持检测
+17.WorkerThread枚举
+18.Ndis中一些回调信息枚举
+19.硬件调试寄存器、调试相关API检测
+20.枚举SFilter/Fltmgr的回调
+</code></pre><p>最简单的使用方法，根据颜色去辨识——可疑进程，隐藏服务、被挂钩函数：红色，然后根据程序右键功能去定位具体的程序和移除功能。根据可疑的进程名等进行互联网信息检索然后统一清除并关联注册表。</p>
+<h5 id="webshell扫描"><a href="#webshell扫描" class="headerlink" title="webshell扫描"></a>webshell扫描</h5><p>可使用<code>D</code>盾，安全狗，河马等。</p>
+<h4 id="11-日志分析"><a href="#11-日志分析" class="headerlink" title="11. 日志分析"></a>11. 日志分析</h4><p>1、打开事件管理器（开始—管理工具—事件查看/开始运行<code>eventvwr</code>）<br>2、主要分析安全日志，可以借助自带的筛选功能<br>3、这里我使用的是<code>EmEditor</code></p>
+<p><img src="http://static.zybuluo.com/1kbfree/3f62487ux9zlsfcte8ruao6f/image_1db11l8nicck1i6m1ncn1e1119si13.png" alt="image_1db11l8nicck1i6m1ncn1e1119si13.png-340.1kB"></p>
+<h4 id="12-相关处置"><a href="#12-相关处置" class="headerlink" title="12. 相关处置"></a>12. 相关处置</h4><p>通过网络连接锁定的可疑进程，进行定位恶意程序后删除(<code>taskkill</code>)</p>
+<p>木马查杀，可配合 <code>pchunter</code> 进行进一步专业分析，使用工具功能进行强制停止以及删除</p>
+<p>最后清理后，统一查看网络连接、进程、内核钩子等是否正常</p>
+<h4 id="13-应用类"><a href="#13-应用类" class="headerlink" title="13. 应用类"></a>13. 应用类</h4><pre><code>Apache、tomcat、Nginx、IIS
+</code></pre><p>无论任何<code>web</code>服务器其实日志需要关注的东西是一致的，即access_log和error_log。一般在确定ip地址后，通过:</p>
+<pre><code>find . access_log |grep xargs ip攻击地址
+
+find . access_log| grep xargs 木马文件名
+</code></pre><p>在对<code>WEB</code>日志进行安全分析时，可以按照下面两种思路展开，逐步深入，还原整个攻击过程。</p>
+<p>1、首先确定受到攻击、入侵的<strong>时间</strong>范围，以此为线索，查找这个时间范围内可疑的日志，进一步排查，最终确定攻击者，还原攻击过程。</p>
+<p><img src="http://static.zybuluo.com/1kbfree/xmwb2pc3msu7sauufw78ip1o/image_1db11udv31n9a325o3vcvh16471g.png" alt="image_1db11udv31n9a325o3vcvh16471g.png-88.6kB"></p>
+<p>2、一般攻击者在入侵网站后，通常会上传一个后门文件，以方便自己以后访问。我们也可以以该文件为线索来展开分析。</p>
+<p><img src="http://static.zybuluo.com/1kbfree/qv4wcy9m7j2qaeda0i6cbwbe/image_1db11v3mvp79ko81u9i761pbs1t.png" alt="image_1db11v3mvp79ko81u9i761pbs1t.png-100.9kB"></p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://only-free.github.into" class="b-link-green">only_free blog</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/05/23/window-ying-ji-xiang-ying/" class="b-link-green">Window应急响应</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'e4a00225a8ce0411166b',
+        clientSecret: '1d6d28b5dffe48a2a0c13a8417df522474c99103',
+        repo: 'only-free.github.io',
+        owner: 'only-free',
+        admin: "only-free",
+        id: '2019-05-23T01-23-50',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2019/05/23/linux-ying-ji-xiang-ying/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Linux应急响应">
+                        
+                        <span class="card-title">Linux应急响应</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+选自网络，总结与此
+
+文件夹介绍
+dev
+
+
+
+etc
+
+
+
+home
+
+
+
+lib/lib64
+
+
+
+opt
+
+
+
+root
+
+
+
+sbin
+
+
+
+tmp
+
+
+用户组概念
+所有组
+用户组
+其他组
+
+
+权限概念https://blog.c</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            only_free
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/应急响应/" target="_blank">
+                        <span class="chip bg-color">应急响应</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2019/01/18/wo-de-xiao-mi-quan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="我的小密圈">
+                        
+                        <span class="card-title">我的小密圈</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">小密圈介绍小密圈主要的是分享Web安全（漏洞挖掘，代码审计），渗透测试（getshell分析，新爆漏洞分析等），还有一些其他有趣的东西，价格暂时为111（其实价格不算贵，毕竟知识是无价的，而且我在拿这些入圈费进行一些秘密活动~~ 总之收益大</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            only_free
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/小密圈/" target="_blank">
+                        <span class="chip bg-color">小密圈</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">TOC</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            在心灵的深处，敞开的希望是自由。
+            <br> 本站总访问 <span id="busuanzi_value_site_pv"></span> 次
+        </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="col s12 m4 l4 social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</body>
+</html>

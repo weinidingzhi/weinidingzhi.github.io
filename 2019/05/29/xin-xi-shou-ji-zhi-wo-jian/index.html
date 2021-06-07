@@ -1,0 +1,1214 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="信息收集之我见, keywords">
+    <meta name="description" content="
+来源网络，回馈网络
+
+对一个网站挖掘的深浅来说就得看你收集的如何，这说明信息收集在漏洞挖掘中是非常的重要的。
+子域名收集子域名收集是最简单的收集手法之一，有很多在线的工具可以直接套用，这里分享几个我经常用的。
+开心的时候用用这个扫描器为什">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>信息收集之我见 | only_free blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">only_free blog</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>档案</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/mubiao" class="waves-effect waves-light">
+            
+            <i class="fa fa-volume-up"></i>
+            
+            <span>目标</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">only_free blog</div>
+        <div class="logo-desc">
+            
+            十年寒窗无人问，一举成名天下知。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                档案
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/mubiao" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-volume-up"></i>
+                
+                目标
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        信息收集之我见
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+            <span class="chip bg-color"><span id="busuanzi_value_page_pv"></span> ℃</span>
+                
+                <a href="/tags/信息收集/" target="_blank">
+                    <span class="chip bg-color">信息收集</span>
+                </a>
+                
+                <a href="/tags/Web安全/" target="_blank">
+                    <span class="chip bg-color">Web安全</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-05-29
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>来源网络，回馈网络</p>
+</blockquote>
+<p>对一个网站挖掘的深浅来说就得看你收集的如何，这说明信息收集在漏洞挖掘中是非常的重要的。</p>
+<h3 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集"></a>子域名收集</h3><p>子域名收集是最简单的收集手法之一，有很多在线的工具可以直接套用，这里分享几个我经常用的。</p>
+<h4 id="开心的时候用用这个扫描器"><a href="#开心的时候用用这个扫描器" class="headerlink" title="开心的时候用用这个扫描器"></a>开心的时候用用这个扫描器</h4><p>为什么这么说，因为这是我写的（你生气用的话我怕我屏幕里突然冒出一个拖孩）</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> threading
+<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+<span class="token keyword">import</span> re
+<span class="token keyword">import</span> time
+
+url <span class="token operator">=</span> input<span class="token punctuation">(</span> <span class="token string">'url(如baidu.com): '</span> <span class="token punctuation">)</span>
+
+head<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 SE 2.X MetaSr 1.0'</span><span class="token punctuation">}</span>
+
+ip <span class="token operator">=</span> <span class="token string">'http://site.ip138.com/{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span> url <span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># domain_url = url.split('.')</span>
+<span class="token comment" spellcheck="true"># domain_url = domain_url[1]+'.'+domain_url[2]</span>
+domain_url <span class="token operator">=</span> url
+domain <span class="token operator">=</span> <span class="token string">'http://site.ip138.com/{}/domain.htm'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span> domain_url <span class="token punctuation">)</span>
+
+t <span class="token operator">=</span> time<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">"%Y-%m-%d"</span><span class="token operator">+</span><span class="token string">'_'</span><span class="token punctuation">,</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+html_file <span class="token operator">=</span> open<span class="token punctuation">(</span> url<span class="token operator">+</span><span class="token string">'_'</span><span class="token operator">+</span>t<span class="token operator">+</span><span class="token string">'.html'</span><span class="token punctuation">,</span><span class="token string">'w'</span> <span class="token punctuation">)</span>
+
+html_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span> <span class="token triple-quoted-string string">'''
+
+&lt;head>
+
+&lt;title>%s的扫描结果&lt;/title>
+&lt;link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+&lt;script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js">&lt;/script>
+&lt;script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js">&lt;/script>
+&lt;style>
+
+pre{
+
+margin: 0 0 0px;
+
+}
+
+&lt;/style>
+&lt;/head>
+
+&lt;ul id="myTab" class="nav nav-tabs navbar-fixed-top navbar navbar-default">
+    &lt;li class="active">
+        &lt;a href="#ip" data-toggle="tab">
+             IP历史解析
+        &lt;/a>
+    &lt;/li>
+    &lt;li>&lt;a href="#cms" data-toggle="tab">CMS识别&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="#domain" data-toggle="tab">子域名信息&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;br>
+&lt;br>
+&lt;br>
+&lt;br>
+&lt;div id="myTabContent" class="tab-content">
+'''</span><span class="token operator">%</span>url <span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">IP</span><span class="token punctuation">(</span> threading<span class="token punctuation">.</span>Thread <span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ip<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        threading<span class="token punctuation">.</span>Thread<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>ip <span class="token operator">=</span> ip
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span> self<span class="token punctuation">.</span>ip<span class="token punctuation">,</span>headers <span class="token operator">=</span> head <span class="token punctuation">)</span>
+        html <span class="token operator">=</span> r<span class="token punctuation">.</span>text
+        bs <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span> <span class="token string">"html.parser"</span><span class="token punctuation">)</span>
+        html_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'&lt;div class="tab-pane fade in active" id="ip">'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> bs<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            ipc <span class="token operator">=</span> i<span class="token punctuation">.</span>get_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            ip_html <span class="token operator">=</span> <span class="token string">'&lt;pre>{}&lt;/pre>'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span> ipc <span class="token punctuation">)</span>
+            html_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span> ip_html <span class="token punctuation">)</span>
+        html_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'&lt;/div>'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CMS</span><span class="token punctuation">(</span> threading<span class="token punctuation">.</span>Thread <span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> cms<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        threading<span class="token punctuation">.</span>Thread<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>cms <span class="token operator">=</span> cms
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        cms <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">'http://whatweb.bugscaner.com/what/'</span><span class="token punctuation">,</span> data<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'url'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>cms<span class="token punctuation">}</span><span class="token punctuation">,</span> headers <span class="token operator">=</span> head<span class="token punctuation">)</span>
+        text <span class="token operator">=</span> cms<span class="token punctuation">.</span>text
+        Web_Frameworks <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'"Web Frameworks": "(.*?)"]'</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span>
+        Programming_Languages <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'"Programming Languages":(.*?)"]'</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span>
+        JavaScript_Frameworks <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'"JavaScript Frameworks": (.*?)"]'</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span>
+        CMS <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'"CMS": (.*?)"]'</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span>
+        Web_Server <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'"Web Servers": (.*?)"]'</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> CMS<span class="token punctuation">:</span>
+            CMS <span class="token operator">=</span> CMS<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'"]'</span>
+        <span class="token keyword">if</span> Programming_Languages<span class="token punctuation">:</span>
+            Programming_Languages <span class="token operator">=</span> Programming_Languages<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'"]'</span>
+        <span class="token keyword">if</span> JavaScript_Frameworks<span class="token punctuation">:</span>
+            JavaScript_Frameworks <span class="token operator">=</span> JavaScript_Frameworks<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'"]'</span>
+        <span class="token keyword">if</span> Web_Frameworks<span class="token punctuation">:</span>
+            Web_Frameworks <span class="token operator">=</span> Web_Frameworks<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'"]'</span>
+        <span class="token keyword">if</span> Web_Server<span class="token punctuation">:</span>
+            Web_Server <span class="token operator">=</span> Web_Server<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'"]'</span>
+        html <span class="token operator">=</span> <span class="token triple-quoted-string string">'''
+        &lt;div class="tab-pane fade" id="cms">
+        &lt;div class="table-responsive">
+        &lt;table class="table table-condensed">
+           &lt;tr>
+            &lt;th>web框架&lt;/th>
+            &lt;th>脚本版本&lt;/th>
+            &lt;th>JavaScript框架&lt;/th>
+            &lt;th>CMS框架&lt;/th>
+            &lt;th>web服务器&lt;/th>
+          &lt;/tr>
+          &lt;tr>
+            &lt;td>{0}&lt;/td>
+            &lt;td>{1}&lt;/td>
+            &lt;td>{2}&lt;/td>
+            &lt;td>{3}&lt;/td>
+            &lt;td>{4}&lt;/td>
+          &lt;/tr>
+        &lt;/table>
+        &lt;/div>
+        &lt;/div>
+        '''</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>Web_Frameworks<span class="token punctuation">,</span>Programming_Languages<span class="token punctuation">,</span>JavaScript_Frameworks<span class="token punctuation">,</span>CMS<span class="token punctuation">,</span>Web_Server<span class="token punctuation">)</span>
+        html_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span> html <span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">DOMAIN</span><span class="token punctuation">(</span> threading<span class="token punctuation">.</span>Thread <span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> domain<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        threading<span class="token punctuation">.</span>Thread<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>domain <span class="token operator">=</span> domain
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">,</span>headers <span class="token operator">=</span> head <span class="token punctuation">)</span>
+        html <span class="token operator">=</span> r<span class="token punctuation">.</span>text
+        bs <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span> <span class="token string">"html.parser"</span><span class="token punctuation">)</span>
+        html_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'&lt;div class="tab-pane fade in active" id="domain"'</span><span class="token punctuation">)</span>
+        num <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> bs<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            num <span class="token operator">+=</span> <span class="token number">1</span>
+            html_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span> <span class="token string">'&lt;br>'</span> <span class="token punctuation">)</span>
+            domainc <span class="token operator">=</span> i<span class="token punctuation">.</span>get_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            domain_html <span class="token operator">=</span> <span class="token string">'&lt;pre>[{}]： {}&lt;/pre>'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span> num<span class="token punctuation">,</span>domainc <span class="token punctuation">)</span>
+            html_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span> domain_html <span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span> domain_html <span class="token punctuation">)</span>
+        html_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'&lt;/div>'</span><span class="token punctuation">)</span>
+
+ip_cls <span class="token operator">=</span> IP<span class="token punctuation">(</span>ip<span class="token punctuation">)</span>
+ip_html <span class="token operator">=</span> ip_cls<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+cms_cls <span class="token operator">=</span> CMS<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+cms_html <span class="token operator">=</span> cms_cls<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+domain_cls <span class="token operator">=</span> DOMAIN<span class="token punctuation">(</span> domain <span class="token punctuation">)</span>
+domain_html <span class="token operator">=</span> domain_cls<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="github开源的子域名扫描器"><a href="#github开源的子域名扫描器" class="headerlink" title="github开源的子域名扫描器"></a>github开源的子域名扫描器</h4><p><a href="https://github.com/lijiejie/subDomainsBrute" target="_blank" rel="noopener">https://github.com/lijiejie/subDomainsBrute</a><br><a href="https://github.com/chuhades/dnsbrute" target="_blank" rel="noopener">https://github.com/chuhades/dnsbrute</a></p>
+<h4 id="在线网站收集"><a href="#在线网站收集" class="headerlink" title="在线网站收集"></a>在线网站收集</h4><h5 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h5><p><a href="https://d.chinacycc.com/（非常推荐）" target="_blank" rel="noopener">https://d.chinacycc.com/（非常推荐）</a></p>
+<p><img src="http://static.zybuluo.com/1kbfree/qs0mh7b7r6hsaza75elhutsg/image_1dbuqgbbl2bh1v10nm68jh1j509.png" alt="image_1dbuqgbbl2bh1v10nm68jh1j509.png-112kB"></p>
+<p>然后不到30秒就出结果了</p>
+<p><img src="http://static.zybuluo.com/1kbfree/1iyab59sog11djizbbiw9h0c/image_1dbuqjj0a10o118r155p1q491k1lm.png" alt="image_1dbuqjj0a10o118r155p1q491k1lm.png-34.3kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/qltdwf3s73s6i06193dxfq85/image_1dbuqkf3l1qdehf418221uslika13.png" alt="image_1dbuqkf3l1qdehf418221uslika13.png-175.7kB"></p>
+<h5 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h5><p><a href="http://z.zcjun.com/" target="_blank" rel="noopener">http://z.zcjun.com/</a><br><a href="https://phpinfo.me/domain/" target="_blank" rel="noopener">https://phpinfo.me/domain/</a></p>
+<h3 id="端口信息收集"><a href="#端口信息收集" class="headerlink" title="端口信息收集"></a>端口信息收集</h3><h4 id="扫描端口并且标记可以爆破的服务"><a href="#扫描端口并且标记可以爆破的服务" class="headerlink" title="扫描端口并且标记可以爆破的服务"></a>扫描端口并且标记可以爆破的服务</h4><pre><code>nmap 目标 --script=ftp-brute,imap-brute,smtp-brute,pop3-brute,mongodb-brute,redis-brute,ms-sql-brute,rlogin-brute,rsync-brute,mysql-brute,pgsql-brute,oracle-sid-brute,oracle-brute,rtsp-url-brute,snmp-brute,svn-brute,telnet-brute,vnc-brute,xmpp-brute
+</code></pre><h4 id="判断常见的漏洞并扫描端口"><a href="#判断常见的漏洞并扫描端口" class="headerlink" title="判断常见的漏洞并扫描端口"></a>判断常见的漏洞并扫描端口</h4><pre><code>nmap 目标 --script=auth,vuln
+</code></pre><h4 id="精确判断漏洞并扫描端口"><a href="#精确判断漏洞并扫描端口" class="headerlink" title="精确判断漏洞并扫描端口"></a>精确判断漏洞并扫描端口</h4><pre><code>nmap 目标 --script=dns-zone-transfer,ftp-anon,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,http-backup-finder,http-cisco-anyconnect,http-iis-short-name-brute,http-put,http-php-version,http-shellshock,http-robots.txt,http-svn-enum,http-webdav-scan,iis-buffer-overflow,iax2-version,memcached-info,mongodb-info,msrpc-enum,ms-sql-info,mysql-info,nrpe-enum,pptp-version,redis-info,rpcinfo,samba-vuln-cve-2012-1182,smb-vuln-ms08-067,smb-vuln-ms17-010,snmp-info,sshv1,xmpp-info,tftp-enum,teamspeak2-version 
+</code></pre><h4 id="我喜欢这样做"><a href="#我喜欢这样做" class="headerlink" title="我喜欢这样做"></a>我喜欢这样做</h4><p>1、扫描子域名</p>
+<p><img src="http://static.zybuluo.com/1kbfree/gwt2yb1mh4yk7tn2baumapxv/image_1dbutat2nhgqgid17iv68f2g42d.png" alt="image_1dbutat2nhgqgid17iv68f2g42d.png-64.3kB"></p>
+<p>提取出域名/<code>ip</code></p>
+<p><img src="http://static.zybuluo.com/1kbfree/z79vppxuhs029n7lzpdhl1v9/image_1dbutad6a1965dff1d06kuoi2m20.png" alt="image_1dbutad6a1965dff1d06kuoi2m20.png-172kB"></p>
+<p>然后把域名放到<code>975.txt</code></p>
+<p>2、批量扫描端口和漏洞检测</p>
+<pre><code>nmap -iL 975.txt --script=auth,vuln,ftp-brute,imap-brute,smtp-brute,pop3-brute,mongodb-brute,redis-brute,ms-sql-brute,rlogin-brute,rsync-brute,mysql-brute,pgsql-brute,oracle-sid-brute,oracle-brute,rtsp-url-brute,snmp-brute,svn-brute,telnet-brute,vnc-brute,xmpp-brute &gt; scan.txt
+</code></pre><p>然后根据对应开放的端口进行针对性漏洞挖掘</p>
+<h3 id="c段信息收集"><a href="#c段信息收集" class="headerlink" title="c段信息收集"></a>c段信息收集</h3><p>c段的话我一般都是使用<code>iis put</code>这款工具来扫描，可以自定义扫描<code>1-255</code>的端口并且还有返回服务器<code>banner</code>信息</p>
+<p>自定义的端口</p>
+<pre><code>135,139,80,8080,15672,873,8983,7001,4848,6379,2381,8161,11211,5335,5336,7809,2181,9200,50070,50075,5984,2375,7809,16992,16993
+</code></pre><p><img src="http://static.zybuluo.com/1kbfree/wkbp83yz8x0fkewwcyh7vx9b/image_1dbuu62uk1f3q1gfqbtk1r5l11qi3p.png" alt="image_1dbuu62uk1f3q1gfqbtk1r5l11qi3p.png-114.4kB"></p>
+<p>这里只是演示下他跑起来的美</p>
+<h3 id="目录信息收集"><a href="#目录信息收集" class="headerlink" title="目录信息收集"></a>目录信息收集</h3><p>目录收集工具有很多，但是最看重的还是目录字典，之前我拿了很多工具的字典去重集合起来超级超级大，只不过是在之前电脑那里还原的时候忘记了备份、、、（说这句话主要是想让你们也可以这样子做，方便自己，然后发我一份，方便你我）</p>
+<p>这里推荐一个工具<code>7kbstorm</code></p>
+<p><a href="https://github.com/7kbstorm/7kbscan-WebPathBrute" target="_blank" rel="noopener">https://github.com/7kbstorm/7kbscan-WebPathBrute</a></p>
+<blockquote>
+<p>像<code>403</code>、<code>404</code>这种页面千万不要关闭，放目录里面扫就ok</p>
+</blockquote>
+<h3 id="谷歌语法收集铭感文件"><a href="#谷歌语法收集铭感文件" class="headerlink" title="谷歌语法收集铭感文件"></a>谷歌语法收集铭感文件</h3><p>最常见的就是用搜索引擎~</p>
+<pre><code>site:ooxx.com filetype:xls
+</code></pre><p>首先试试百度</p>
+<p><img src="http://static.zybuluo.com/1kbfree/ztnx3vmhmv1n8amubgs2k6m5/image_1dbv9cp101p0h1i1cid6g35190n46.png" alt="image_1dbv9cp101p0h1i1cid6g35190n46.png-48.2kB"></p>
+<blockquote>
+<p>$!@!~~WDwadawicnm</p>
+</blockquote>
+<p>试试必应</p>
+<p><img src="http://static.zybuluo.com/1kbfree/z4qkha9n1un7ukk67g1uqii5/image_1dbv9k8liv5n18n814fu18j25k53.png" alt="image_1dbv9k8liv5n18n814fu18j25k53.png-120kB"></p>
+<p>这里主要是收集网站敏感文件（比如目标的某个系统手册演示的截图中截图到了用户名，然后我们可以根据用户名来爆破密码；甚至可以看看有没有写系统默认密码，或者一些后台的目录路径，如果有目录就可以尝试对其访问，说不定有未授权~）</p>
+<p>还能尝试对后台进行查找</p>
+<pre><code>site:xxx.xxx admin
+site:xxx.xxx login
+site:xxx.xxx system
+site:xxx.xxx 管理
+site:xxx.xxx 登录
+site:xxx.xxx 内部
+site:xxx.xxx 系统
+</code></pre><p>还可以查找邮箱，然后进行钓鱼</p>
+<pre><code>site:xxx.xxx 邮件
+site:xxx.xxx email
+</code></pre><p>还可以查找<code>qq</code>群等，然后假装员工验证进去看群文件泄露了什么东东（这里有个技巧，去找客服聊天处，然后对整个过程抓包也就是看历史请求，如果运气好可能在请求的返回包中返回客服的姓名，如果只单纯的泄露了姓如<strong>张xx</strong>，那么你加群的时候就说你是<strong>小张工作号</strong>，说这个工作号的原因是可能小张已经在群里了）</p>
+<pre><code>注意事项：如果你是挖腾讯的话就不要看这条啦
+site:xxx.xxx qq
+site:xxx.xxx 群
+site:xxx.xxx 企鹅
+site:xxx.xxx 腾讯
+</code></pre><p>还可以对寻找一些公开的、危害大、普遍的漏洞的指纹，如下面的搜索<code>jboss</code>系统</p>
+<pre><code>site:ooxx.com inurl:jmx-console
+</code></pre><h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4><p>比如下面一个站存在越权（但是越权的对象很难猜测）</p>
+<pre><code>http://xxx.xxx.xxx/userinfo/?uid=2018-WOIDJWOIDJ-5201314
+</code></pre><p>那么我们可以尝试用搜索引擎来找</p>
+<pre><code>site:xxx.xxx inurl=uid=20
+</code></pre><h3 id="利用云网盘搜索工具搜集敏感文件"><a href="#利用云网盘搜索工具搜集敏感文件" class="headerlink" title="利用云网盘搜索工具搜集敏感文件"></a>利用云网盘搜索工具搜集敏感文件</h3><blockquote>
+<p>公司员工可能把一些内部资料放在了公网网盘，然后被在线云网盘搜索的网站抓取了，我们就可以利用这个来对目标系统进行深入交流</p>
+</blockquote>
+<p>我这边主要用凌风云搜索</p>
+<p><a href="https://www.lingfengyun.com/" target="_blank" rel="noopener">https://www.lingfengyun.com/</a></p>
+<p><img src="http://static.zybuluo.com/1kbfree/o982kurvzt9wd1psstmsx5du/image_1dbvbbve839lj94hs8d92cp.png" alt="image_1dbvbbve839lj94hs8d92cp.png-143.4kB"></p>
+<p>个人喜欢直接输入厂商名字然后搜索（比较全），然后边看电视（最好看鬼片，鬼出来的阶段想着找找找）边搜索</p>
+<h3 id="利用gayhub来收集信息"><a href="#利用gayhub来收集信息" class="headerlink" title="利用gayhub来收集信息"></a>利用gayhub来收集信息</h3><p>1、打开<code>gayhub</code></p>
+<p><img src="http://static.zybuluo.com/1kbfree/88w8pjy2e0vq3ypx2n0qbbfd/image_1dbvble0op36hmi1ter16ck1vt816.png" alt="image_1dbvble0op36hmi1ter16ck1vt816.png-151kB"></p>
+<p>这里就是找<code>gayhub</code>全部开源项目内容中存在联想这个关键字的项目，这样子可以搜集到的方面更广，如果单纯只是对标题搜索，那么他们改成了<code>lenovo</code>你就搜不到了</p>
+<p>然后说再多，也没这个好用</p>
+<p><a href="https://sec.xiaomi.com/article/37" target="_blank" rel="noopener">https://sec.xiaomi.com/article/37</a></p>
+<h3 id="针对网站性收集"><a href="#针对网站性收集" class="headerlink" title="针对网站性收集"></a>针对网站性收集</h3><h5 id="1、把网站弄报错，看是什么cms，或者看返回包回显是什么中间件这些"><a href="#1、把网站弄报错，看是什么cms，或者看返回包回显是什么中间件这些" class="headerlink" title="1、把网站弄报错，看是什么cms，或者看返回包回显是什么中间件这些"></a>1、把网站弄报错，看是什么<code>cms</code>，或者看返回包回显是什么中间件这些</h5><h5 id="2、看是linux还是window"><a href="#2、看是linux还是window" class="headerlink" title="2、看是linux还是window"></a>2、看是<code>linux</code>还是<code>window</code></h5><p>如目标<code>url</code>是<code>www.onlyfree.xxx/login</code>，那么改成<code>www.onlyfree.xxx/Login</code>看看能不能访问，如果可以访问就可能是<code>window</code>，否则可能是<code>linux</code></p>
+<h5 id="3、可以去云溪等在线识别指纹的网站看指纹信息"><a href="#3、可以去云溪等在线识别指纹的网站看指纹信息" class="headerlink" title="3、可以去云溪等在线识别指纹的网站看指纹信息"></a>3、可以去云溪等在线识别指纹的网站看指纹信息</h5><p><a href="http://whatweb.bugscaner.com/look/" target="_blank" rel="noopener">http://whatweb.bugscaner.com/look/</a><br><a href="http://www.yunsee.cn/finger.html" target="_blank" rel="noopener">http://www.yunsee.cn/finger.html</a></p>
+<h5 id="4、对waf进行识别"><a href="#4、对waf进行识别" class="headerlink" title="4、对waf进行识别"></a>4、对<code>waf</code>进行识别</h5><p>这里有一款开源的识别工具，挺好用的<br><a href="https://github.com/EnableSecurity/wafw00f" target="_blank" rel="noopener">https://github.com/EnableSecurity/wafw00f</a></p>
+<h5 id="5、对网站whois查询看注册人、手机号、邮箱等（可以收集起来放到密码生成工具）"><a href="#5、对网站whois查询看注册人、手机号、邮箱等（可以收集起来放到密码生成工具）" class="headerlink" title="5、对网站whois查询看注册人、手机号、邮箱等（可以收集起来放到密码生成工具）"></a>5、对网站<code>whois</code>查询看注册人、手机号、邮箱等（可以收集起来放到密码生成工具）</h5><h5 id="6、看html源代码，在一起项目测试的时候，我在找html源代码的时候发现一个注释的js文件，我将其打开后，里面的备注居然是配置信息。。。后台地址、管理员账号和密码等（可是我没get到shell，所以你要知道这回事而不要记住这件事）"><a href="#6、看html源代码，在一起项目测试的时候，我在找html源代码的时候发现一个注释的js文件，我将其打开后，里面的备注居然是配置信息。。。后台地址、管理员账号和密码等（可是我没get到shell，所以你要知道这回事而不要记住这件事）" class="headerlink" title="6、看html源代码，在一起项目测试的时候，我在找html源代码的时候发现一个注释的js文件，我将其打开后，里面的备注居然是配置信息。。。后台地址、管理员账号和密码等（可是我没get到shell，所以你要知道这回事而不要记住这件事）"></a>6、看<code>html</code>源代码，在一起项目测试的时候，我在找<code>html</code>源代码的时候发现一个注释的<code>js</code>文件，我将其打开后，里面的备注居然是配置信息。。。后台地址、管理员账号和密码等（可是我没<code>get</code>到<code>shell</code>，所以你要知道这回事而不要记住这件事）</h5><h5 id="7、网站真实ip识别，下面是我用的一个工具，但是我忘记哪里下载的了，我原封不漏的粘贴出来"><a href="#7、网站真实ip识别，下面是我用的一个工具，但是我忘记哪里下载的了，我原封不漏的粘贴出来" class="headerlink" title="7、网站真实ip识别，下面是我用的一个工具，但是我忘记哪里下载的了，我原封不漏的粘贴出来"></a>7、网站真实<code>ip</code>识别，下面是我用的一个工具，但是我忘记哪里下载的了，我原封不漏的粘贴出来</h5><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#############################################################</span>
+<span class="token comment" spellcheck="true">###                                                  </span>
+<span class="token comment" spellcheck="true">###   ▄▄▄▄                ▄▄▄     ▄▄▄▄    ▀      ▄   </span>
+<span class="token comment" spellcheck="true">###  ▀   ▀█ ▄   ▄  ▄▄▄▄     █    ▄▀  ▀▄ ▄▄▄    ▄▄█▄▄ </span>
+<span class="token comment" spellcheck="true">###    ▄▄▄▀  █▄█   █▀ ▀█    █    █  ▄ █   █      █   </span>
+<span class="token comment" spellcheck="true">###      ▀█  ▄█▄   █   █    █    █    █   █      █   </span>
+<span class="token comment" spellcheck="true">###  ▀▄▄▄█▀ ▄▀ ▀▄  ██▄█▀  ▄▄█▄▄   █▄▄█  ▄▄█▄▄    ▀▄▄ </span>
+<span class="token comment" spellcheck="true">###                █                                 </span>
+<span class="token comment" spellcheck="true">###                ▀                                 </span>
+<span class="token comment" spellcheck="true">###                                                          </span>
+<span class="token comment" spellcheck="true">### name: xcdn.py</span>
+<span class="token comment" spellcheck="true">### function: try to get the actual ip behind cdn</span>
+<span class="token comment" spellcheck="true">### date: 2016-11-05</span>
+<span class="token comment" spellcheck="true">### author: quanyechavshuo</span>
+<span class="token comment" spellcheck="true">### blog: http://3xp10it.cc</span>
+<span class="token comment" spellcheck="true">#############################################################</span>
+<span class="token comment" spellcheck="true"># usage:python3 xcdn.py www.baidu.com</span>
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> os
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"pip3 install exp10it -U --no-cache-dir"</span><span class="token punctuation">)</span>    
+<span class="token keyword">from</span> exp10it <span class="token keyword">import</span> figlet2file
+figlet2file<span class="token punctuation">(</span><span class="token string">"3xp10it"</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token keyword">from</span> exp10it <span class="token keyword">import</span> CLIOutput
+<span class="token keyword">from</span> exp10it <span class="token keyword">import</span> get_root_domain
+<span class="token keyword">from</span> exp10it <span class="token keyword">import</span> get_string_from_command
+<span class="token keyword">from</span> exp10it <span class="token keyword">import</span> get_http_or_https
+<span class="token keyword">from</span> exp10it <span class="token keyword">import</span> post_request
+<span class="token keyword">from</span> exp10it <span class="token keyword">import</span> get_request
+<span class="token keyword">from</span> exp10it <span class="token keyword">import</span> checkvpn
+<span class="token keyword">import</span> sys
+<span class="token keyword">import</span> re
+
+<span class="token keyword">class</span> <span class="token class-name">Xcdn</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>domain<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#必须保证连上了vpn,要在可以ping通google的条件下使用本工具,否则有些domain由于被GFW拦截无法正常访问会导致</span>
+        <span class="token comment" spellcheck="true">#本工具判断错误,checkvpn在可以ping通google的条件下返回1</span>
+        <span class="token keyword">while</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> checkvpn<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
+                <span class="token keyword">break</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"vpn is off,connect vpn first"</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> domain<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">"http"</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>"domain format error<span class="token punctuation">,</span>make sure domain has no http<span class="token punctuation">,</span>like www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com but <span class="token operator">not</span> \
+http<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com"<span class="token punctuation">)</span>
+            sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#首先保证hosts文件中没有与domain相关的项,有则删除相关</span>
+        domainPattern<span class="token operator">=</span>domain<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">,</span><span class="token string">"\."</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#下面的sed的正则中不能有\n,sed匹配\n比较特殊</span>
+        <span class="token comment" spellcheck="true">#http://stackoverflow.com/questions/1251999/how-can-i-replace-a-newline-n-using-sed</span>
+        command<span class="token operator">=</span><span class="token string">"sed -ri 's/.*\s+%s//' /etc/hosts"</span> <span class="token operator">%</span> domainPattern
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>command<span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>domain<span class="token operator">=</span>domain
+        self<span class="token punctuation">.</span>http_or_https<span class="token operator">=</span>get_http_or_https<span class="token punctuation">(</span>self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'domain的http或https是:%s'</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>http_or_https<span class="token punctuation">)</span>
+        result<span class="token operator">=</span>get_request<span class="token punctuation">(</span>self<span class="token punctuation">.</span>http_or_https<span class="token operator">+</span><span class="token string">"://"</span><span class="token operator">+</span>self<span class="token punctuation">.</span>domain<span class="token punctuation">,</span><span class="token string">'seleniumPhantomJS'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>domain_title<span class="token operator">=</span>result<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span>
+        <span class="token comment" spellcheck="true">#下面调用相当于main函数的get_actual_ip_from_domain函数</span>
+        actual_ip <span class="token operator">=</span> self<span class="token punctuation">.</span>get_actual_ip_from_domain<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> actual_ip <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"恭喜,%s的真实ip是%s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>domain<span class="token punctuation">,</span> actual_ip<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#下面用来存放关键返回值</span>
+        self<span class="token punctuation">.</span>return_value<span class="token operator">=</span>actual_ip
+
+
+    <span class="token keyword">def</span> <span class="token function">domain_has_cdn</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 检测domain是否有cdn</span>
+        <span class="token comment" spellcheck="true"># 有cdn时,返回一个字典,如果cdn是cloudflare，返回{'has_cdn':1,'is_cloud_flare':1}</span>
+        <span class="token comment" spellcheck="true"># 否则返回{'has_cdn':1,'is_cloud_flare':0}或{'has_cdn':0,'is_cloud_flare':0}</span>
+        <span class="token keyword">import</span> re
+        CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"现在检测domain:%s是否有cdn"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span>
+        has_cdn <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token comment" spellcheck="true"># ns记录和mx记录一样,都要查顶级域名,eg.dig +short www.baidu.com ns VS dig +short baidu.com ns</span>
+        result <span class="token operator">=</span> get_string_from_command<span class="token punctuation">(</span><span class="token string">"dig ns %s +short"</span> <span class="token operator">%</span> get_root_domain<span class="token punctuation">(</span>self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        pattern <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>
+            r<span class="token string">"(cloudflare)|(cdn)|(cloud)|(fast)|(incapsula)|(photon)|(cachefly)|(wppronto)|(softlayer)|(incapsula)|(jsdelivr)|(akamai)"</span><span class="token punctuation">,</span> re<span class="token punctuation">.</span>I<span class="token punctuation">)</span>
+        cloudflare_pattern <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">"cloudflare"</span><span class="token punctuation">,</span> re<span class="token punctuation">.</span>I<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>cloudflare_pattern<span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"has_cdn=1 from ns,and cdn is cloudflare"</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'has_cdn'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'is_cloud_flare'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">}</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"has_cdn=1 from ns"</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'has_cdn'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'is_cloud_flare'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 下面通过a记录个数来判断,如果a记录个数>1个,认为有cdn</span>
+            result <span class="token operator">=</span> get_string_from_command<span class="token punctuation">(</span><span class="token string">"dig a %s +short"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span>
+            find_a_record_pattern <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">"((\d{1,3}\.){3}\d{1,3})"</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> find_a_record_pattern<span class="token punctuation">:</span>
+                ip_count <span class="token operator">=</span> <span class="token number">0</span>
+                <span class="token keyword">for</span> each <span class="token keyword">in</span> find_a_record_pattern<span class="token punctuation">:</span>
+                    ip_count <span class="token operator">+=</span> <span class="token number">1</span>
+                <span class="token keyword">if</span> ip_count <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">:</span>
+                    has_cdn <span class="token operator">=</span> <span class="token number">1</span>
+                    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'has_cdn'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'is_cloud_flare'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'has_cdn'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'is_cloud_flare'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">get_domain_actual_ip_from_phpinfo</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 从phpinfo页面尝试获得真实ip</span>
+        CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"现在尝试从domain:%s可能存在的phpinfo页面获取真实ip"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span>
+        phpinfo_page_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"info.php"</span><span class="token punctuation">,</span> <span class="token string">"phpinfo.php"</span><span class="token punctuation">,</span> <span class="token string">"test.php"</span><span class="token punctuation">,</span> <span class="token string">"l.php"</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> each <span class="token keyword">in</span> phpinfo_page_list<span class="token punctuation">:</span>
+            url <span class="token operator">=</span> self<span class="token punctuation">.</span>http_or_https <span class="token operator">+</span> <span class="token string">"://"</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>domain <span class="token operator">+</span> <span class="token string">"/"</span> <span class="token operator">+</span> each
+            CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"现在访问%s"</span> <span class="token operator">%</span> url<span class="token punctuation">)</span>
+            visit <span class="token operator">=</span> get_request<span class="token punctuation">(</span>url<span class="token punctuation">,</span><span class="token string">'seleniumPhantomJS'</span><span class="token punctuation">)</span>
+            code <span class="token operator">=</span> visit<span class="token punctuation">[</span><span class="token string">'code'</span><span class="token punctuation">]</span>
+            content <span class="token operator">=</span> visit<span class="token punctuation">[</span><span class="token string">'content'</span><span class="token punctuation">]</span>
+            pattern <span class="token operator">=</span> re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">"remote_addr"</span><span class="token punctuation">,</span> re<span class="token punctuation">.</span>I<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> code <span class="token operator">==</span> <span class="token number">200</span> <span class="token operator">and</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> content<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>each<span class="token punctuation">)</span>
+                actual_ip <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>r<span class="token string">"REMOTE_ADDR[^\.\d]+([\d\.]{7,15})[^\.\d]+"</span><span class="token punctuation">,</span> content<span class="token punctuation">)</span><span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> actual_ip
+        <span class="token comment" spellcheck="true"># return 0代表没有通过phpinfo页面得到真实ip</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">flush_dns</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 这个函数用来刷新本地dns cache</span>
+        <span class="token comment" spellcheck="true"># 要刷新dns cache才能让修改hosts文件有效</span>
+        CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"现在刷新系统的dns cache"</span><span class="token punctuation">)</span>
+        command <span class="token operator">=</span> <span class="token string">"service network-manager restart &amp;&amp; /etc/init.d/networking force-reload"</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>command<span class="token punctuation">)</span>
+        <span class="token keyword">import</span> time
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">modify_hosts_file_with_ip_and_domain</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>ip<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 这个函数用来修改hosts文件</span>
+        CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"现在修改hosts文件"</span><span class="token punctuation">)</span>
+        exists_domain_line <span class="token operator">=</span> <span class="token boolean">False</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"/etc/hosts"</span><span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            file_content <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>r<span class="token string">"%s"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">,</span> <span class="token string">"\."</span><span class="token punctuation">)</span><span class="token punctuation">,</span> file_content<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            exists_domain_line <span class="token operator">=</span> <span class="token boolean">True</span>
+        <span class="token keyword">if</span> exists_domain_line <span class="token operator">==</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+            os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"sed -ri 's/.*%s.*/%s    %s/' %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>domain<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">,</span> <span class="token string">"\."</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ip<span class="token punctuation">,</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">,</span> <span class="token string">"/etc/hosts"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"echo %s %s >> /etc/hosts"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>ip<span class="token punctuation">,</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">check_if_ip_is_actual_ip_of_domain</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>ip<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 通过修改hosts文件检测ip是否是domain对应的真实ip</span>
+        <span class="token comment" spellcheck="true"># 如果是则返回True,否则返回False</span>
+        <span class="token comment" spellcheck="true">#CLIOutput().good_print("现在通过修改hosts文件并刷新dns的方法检测ip:%s是否是domain:%s的真实ip" % (ip,self.domain))</span>
+        <span class="token comment" spellcheck="true">#python通过requests库或mechanicalsoup库或selenium_phantomjs来请求时不会被dns缓存影响，只会被hosts文件影响dns解析,人工用浏览器访问域名则会受dns缓存影响</span>
+        CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"现在通过修改hosts文件的方法检测ip:%s是否是domain:%s的真实ip"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>ip<span class="token punctuation">,</span>self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"cp /etc/hosts /etc/hosts.bak"</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>modify_hosts_file_with_ip_and_domain<span class="token punctuation">(</span>ip<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#python通过requests库或mechanicalsoup库或selenium_phantomjs来请求时不会被dns缓存影响，只会被hosts文件影响dns解析,人工用浏览器访问域名则会受dns缓存影响</span>
+        <span class="token comment" spellcheck="true">#self.flush_dns()</span>
+        hosts_changed_domain_title<span class="token operator">=</span> get_request<span class="token punctuation">(</span>self<span class="token punctuation">.</span>http_or_https <span class="token operator">+</span> <span class="token string">"://%s"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">,</span><span class="token string">'selenium_phantom_js'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"rm /etc/hosts &amp;&amp; mv /etc/hosts.bak /etc/hosts"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#这里要用title判断,html判断不可以,title相同则认为相同</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>domain_title <span class="token operator">==</span> hosts_changed_domain_title<span class="token punctuation">:</span>
+            CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"检测到真实ip!!!!!!"</span><span class="token punctuation">,</span><span class="token string">'red'</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"当前ip不是域名的真实ip"</span><span class="token punctuation">,</span><span class="token string">'yellow'</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">get_c_80_or_443_list</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>ip<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 得到ip的整个c段的开放80端口或443端口的ip列表</span>
+        <span class="token keyword">if</span> <span class="token string">"not found"</span> <span class="token keyword">in</span> get_string_from_command<span class="token punctuation">(</span><span class="token string">"masscan"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true">#这里不用nmap扫描,nmap扫描结果不准</span>
+            os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"apt-get install masscan"</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>http_or_https<span class="token operator">==</span><span class="token string">"http"</span><span class="token punctuation">:</span>
+            scanPort<span class="token operator">=</span><span class="token number">80</span>
+            CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"现在进行%s的c段开了80端口机器的扫描"</span> <span class="token operator">%</span> ip<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>http_or_https<span class="token operator">==</span><span class="token string">"https"</span><span class="token punctuation">:</span>
+            scanPort<span class="token operator">=</span><span class="token number">443</span>
+            CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"现在进行%s的c段开了443端口机器的扫描"</span> <span class="token operator">%</span> ip<span class="token punctuation">)</span>
+        masscan_command <span class="token operator">=</span> <span class="token string">"masscan -p%d %s/24 > /tmp/masscan.out"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>scanPort<span class="token punctuation">,</span>ip<span class="token punctuation">)</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>masscan_command<span class="token punctuation">)</span>
+        <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"/tmp/masscan.out"</span><span class="token punctuation">,</span> <span class="token string">"r+"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+            strings <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">#os.system("rm /tmp/masscan.out")</span>
+        <span class="token keyword">import</span> re
+        allIP<span class="token operator">=</span>re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">"((\d{1,3}\.){3}\d{1,3})"</span><span class="token punctuation">,</span>strings<span class="token punctuation">)</span>
+        ipList<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> each <span class="token keyword">in</span> allIP<span class="token punctuation">:</span>
+            ipList<span class="token punctuation">.</span>append<span class="token punctuation">(</span>each<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>ipList<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ipList
+
+
+    <span class="token keyword">def</span> <span class="token function">check_if_ip_c_machines_has_actual_ip_of_domain</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>ip<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 检测ip的c段有没有domain的真实ip,如果有则返回真实ip,如果没有则返回0</span>
+        CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"现在检测ip为%s的c段中有没有%s的真实ip"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>ip<span class="token punctuation">,</span>self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        target_list<span class="token operator">=</span>self<span class="token punctuation">.</span>get_c_80_or_443_list<span class="token punctuation">(</span>ip<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> each_ip <span class="token keyword">in</span> target_list<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token boolean">True</span> <span class="token operator">==</span> self<span class="token punctuation">.</span>check_if_ip_is_actual_ip_of_domain<span class="token punctuation">(</span>each_ip<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> each_ip
+        <span class="token keyword">return</span> <span class="token number">0</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">get_ip_from_mx_record</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 从mx记录中得到ip列表,尝试从mx记录中的c段中找真实ip</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"尝试从mx记录中找和%s顶级域名相同的mx主机"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span>
+        <span class="token keyword">import</span> socket
+        <span class="token comment" spellcheck="true"># domain.eg:www.baidu.com</span>
+        <span class="token keyword">from</span> exp10it <span class="token keyword">import</span> get_root_domain
+        root_domain <span class="token operator">=</span> get_root_domain<span class="token punctuation">(</span>self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span>
+        <span class="token keyword">from</span> exp10it <span class="token keyword">import</span> get_string_from_command
+        result <span class="token operator">=</span> get_string_from_command<span class="token punctuation">(</span><span class="token string">"dig %s +short mx"</span> <span class="token operator">%</span> root_domain<span class="token punctuation">)</span>
+        sub_domains_list <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">"\d{1,} (.*\.%s)\."</span> <span class="token operator">%</span> root_domain<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">,</span> <span class="token string">"\."</span><span class="token punctuation">)</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+        ip_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> each <span class="token keyword">in</span> sub_domains_list<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>each<span class="token punctuation">)</span>
+            ip <span class="token operator">=</span> socket<span class="token punctuation">.</span>gethostbyname_ex<span class="token punctuation">(</span>each<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+            <span class="token keyword">if</span> ip<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">not</span> <span class="token keyword">in</span> ip_list<span class="token punctuation">:</span>
+                ip_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>ip<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ip_list
+
+
+    <span class="token keyword">def</span> <span class="token function">check_if_mx_c_machines_has_actual_ip_of_domain</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 检测domain的mx记录所在ip[或ip列表]的c段中有没有domain的真实ip</span>
+        <span class="token comment" spellcheck="true"># 有则返回真实ip,没有则返回0</span>
+        CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"尝试从mx记录的c段中查找是否存在%s的真实ip"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span>
+        ip_list <span class="token operator">=</span> self<span class="token punctuation">.</span>get_ip_from_mx_record<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> ip_list <span class="token operator">!=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> each_ip <span class="token keyword">in</span> ip_list<span class="token punctuation">:</span>
+                result <span class="token operator">=</span> self<span class="token punctuation">.</span>check_if_ip_c_machines_has_actual_ip_of_domain<span class="token punctuation">(</span>each_ip<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> result <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                    <span class="token keyword">return</span> result
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    <span class="token keyword">continue</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">get_ip_value_from_online_cloudflare_interface</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 从在线的cloudflare查询真实ip接口处查询真实ip</span>
+        <span class="token comment" spellcheck="true"># 如果查询到真实ip则返回ip值,如果没有查询到则返回0</span>
+        CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"现在从在线cloudflare类型cdn查询真实ip接口尝试获取真实ip"</span><span class="token punctuation">)</span>
+        url <span class="token operator">=</span> <span class="token string">"http://www.crimeflare.com/cgi-bin/cfsearch.cgi"</span>
+        post_data <span class="token operator">=</span> <span class="token string">'cfS=%s'</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>domain
+        content <span class="token operator">=</span> post_request<span class="token punctuation">(</span>url<span class="token punctuation">,</span> post_data<span class="token punctuation">)</span>
+        findIp <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span>r<span class="token string">"((\d{1,3}\.){3}\d{1,3})"</span><span class="token punctuation">,</span> content<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> findIp<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> findIp<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">get_actual_ip_from_domain</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 尝试获得domain背后的真实ip,前提是domain有cdn</span>
+        <span class="token comment" spellcheck="true"># 如果找到了则返回ip,如果没有找到返回0</span>
+        CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"进入获取真实ip函数,认为每个domain都是有cdn的情况来处理"</span><span class="token punctuation">)</span>
+        <span class="token keyword">import</span> socket
+        has_cdn_value <span class="token operator">=</span> self<span class="token punctuation">.</span>domain_has_cdn<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> has_cdn_value<span class="token punctuation">[</span><span class="token string">'has_cdn'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"检测到domain:%s的A记录不止一个,认为它有cdn"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span>
+            <span class="token keyword">pass</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            CLIOutput<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>good_print<span class="token punctuation">(</span><span class="token string">"Attention...!!! Domain doesn't have cdn,I will return the only one ip"</span><span class="token punctuation">)</span>
+            true_ip <span class="token operator">=</span> socket<span class="token punctuation">.</span>gethostbyname_ex<span class="token punctuation">(</span>self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            <span class="token keyword">return</span> true_ip
+        <span class="token comment" spellcheck="true"># 下面尝试通过cloudflare在线查询真实ip接口获取真实ip</span>
+        <span class="token keyword">if</span> has_cdn_value<span class="token punctuation">[</span><span class="token string">'is_cloud_flare'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            ip_value <span class="token operator">=</span> self<span class="token punctuation">.</span>get_ip_value_from_online_cloudflare_interface<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> ip_value <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> ip_value
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">pass</span>
+        <span class="token comment" spellcheck="true"># 下面尝试通过可能存在的phpinfo页面获得真实ip</span>
+        ip_from_phpinfo <span class="token operator">=</span> self<span class="token punctuation">.</span>get_domain_actual_ip_from_phpinfo<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> ip_from_phpinfo <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">pass</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> ip_from_phpinfo
+        <span class="token comment" spellcheck="true"># 下面通过mx记录来尝试获得真实ip</span>
+        result <span class="token operator">=</span> self<span class="token punctuation">.</span>check_if_mx_c_machines_has_actual_ip_of_domain<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> result <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">pass</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> result
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"很遗憾,在下认为%s有cdn,但是目前在下的能力没能获取它的真实ip,当前函数将返回0"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>domain<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token keyword">import</span> sys
+    domain<span class="token operator">=</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    Xcdn<span class="token punctuation">(</span>domain<span class="token punctuation">)</span>
+</code></pre>
+<h5 id="8、服务器ssh配置信息"><a href="#8、服务器ssh配置信息" class="headerlink" title="8、服务器ssh配置信息"></a>8、服务器ssh配置信息</h5><p>丢工具：<a href="https://github.com/mozilla/ssh_scan" target="_blank" rel="noopener">https://github.com/mozilla/ssh_scan</a></p>
+<h5 id="9、敏感文件爆破"><a href="#9、敏感文件爆破" class="headerlink" title="9、敏感文件爆破"></a>9、敏感文件爆破</h5><ul>
+<li><code>svn</code>源代码泄露使用<code>svn</code>版本控制系统时，错误操作将<code>.svn</code>文件存放，那么久可以看他<code>SVN</code>服务器账号密码等信息</li>
+</ul>
+<pre><code>http://xxx.xxx.xxx/.svn/entries
+</code></pre><h5 id="10、根据目标系统情况"><a href="#10、根据目标系统情况" class="headerlink" title="10、根据目标系统情况"></a>10、根据目标系统情况</h5><p>根据目标系统情况是因为看他对应的系统是什么对应有什么漏洞，下面这个是<code>tomcat</code>的<code>session</code>泄露</p>
+<pre><code>/examples/servlets/servlet/SessionExample/examples/
+/examples/servlets/servlet/SessionExample
+/examples/
+</code></pre><p><img src="http://static.zybuluo.com/1kbfree/c4nub4ydmq1402ccx0sav3x9/image_1dbvfielukp81f701hcd1qnq12e41j.png" alt="image_1dbvfielukp81f701hcd1qnq12e41j.png-57.6kB"></p>
+<h3 id="敏感目录泄露"><a href="#敏感目录泄露" class="headerlink" title="敏感目录泄露"></a>敏感目录泄露</h3><ul>
+<li><code>WEB-INF/web.xml</code>泄露</li>
+</ul>
+<p><code>WEB-INF</code>是<code>Java</code>的<code>WEB</code>应用的安全目录。如果想在页面中直接访问其中的文件，必须通过<code>web.xml</code>文件对要访问的文件进行相应映射才能访问</p>
+<pre><code>/WEB-INF/config/jdbc.properties
+/WEB-INF/web.xml
+/WEB-INF/classes/
+/WEB-INF/lib/
+/WEB-INF/src/
+/WEB-INF/database.properties
+</code></pre><ul>
+<li><code>bzr</code>泄露</li>
+</ul>
+<p>通过它我们可以看项目历史</p>
+<pre><code>http://xxx.xxx.xxx/.bzr/
+</code></pre><ul>
+<li>网站源代码泄露</li>
+</ul>
+<p>不多介绍，可能管理员觉得网站不安全，需要我们审计一下</p>
+<pre><code>www.zip
+www.tar.gz
+www.rar
+web.zip
+web.rar
+...
+</code></pre><p>这些有很多，，不一一详细，后面我会将这些全部集合在一个字典里，然后我们可以放入目录遍历的工具里批量扫~</p>
+<h3 id="利用shodan、fofa等收集信息"><a href="#利用shodan、fofa等收集信息" class="headerlink" title="利用shodan、fofa等收集信息"></a>利用shodan、fofa等收集信息</h3><p>查找标题是携程并且语言是国语的站点</p>
+<pre><code>https://www.shodan.io/search?query=http.title:&quot;携程&quot; country:&quot;CN&quot;
+</code></pre><p><img src="http://static.zybuluo.com/1kbfree/6c72ksiz5fz1js4zomzvy6q3/image_1dbvfuq8rvjho6e3qd1etn1va420.png" alt="image_1dbvfuq8rvjho6e3qd1etn1va420.png-338.8kB"></p>
+<p>我们可以将其收藏为文件夹，方便下次打开，然后记录时间，看看有没有新上线的（这里已经有监控的功能，各位师傅可以去看看米斯特大佬写的<code>shodan</code>监控文章，很有趣很实用）</p>
+<p><code>shodan</code>、<code>fofa</code>不多介绍了，有对应的手册，见的肯定比我好</p>
+<h3 id="思路扩展"><a href="#思路扩展" class="headerlink" title="思路扩展"></a>思路扩展</h3><p>思路扩展就是在<code>a</code>功能点中找出<code>b</code>功能点，以此类推</p>
+<p>比如一些后台登录是</p>
+<pre><code>http://xxx.xxx.xxx/admin-login
+</code></pre><p>我们是不是可以尝试吧<code>login</code>改成<code>register</code>来注册</p>
+<p>再比如获取用户手机号的接口（这里不存在越权）</p>
+<pre><code>http://xxx.xxx.xxx/user/GetPhone/?id=1
+</code></pre><p>然后我们把<code>GetPhone</code>改成<code>GetPasswd</code>或者<code>GetPwd</code>或者<code>GetPassword</code>然后<code>id</code>就可能可以越权，或者这里可以<code>json</code>劫持或者<code>origin</code>劫持等，我们可以诱导用户点开来劫持账号密码</p>
+<p>或者还是看源代码，然后搜索<code>hidden</code>（滑稽），我们可能可能会找到敏感操作的按钮，然后管理员也知道敏感，将其”隐藏”了，我们可以根据这个来搜索然后访问他，嘿嘿嘿（之前对一个小站点进行挖掘的时候我<code>hidden</code>找居然找到了不可描述的目录下面放着不可描述的电影，当时我的心情是非常拒绝的，经过几小时的思考我迅速的将那个目录关闭了，毕竟我是祖国的花朵）</p>
+<p>这里有很多是<code>adrian</code>师傅与我分享的，然后暂时只写那么多吧（其实还有几个，怕触犯到权什么的就是他给你学了但不给我写的那种，很麻烦所以就以后有机会再写吧），如果遇到了更多我会补充</p>
+<blockquote>
+<p>来源于网络，回馈于网络<br>作者qq：1900065568<br>经济条件的情况下表哥们可以来我小密圈支持支持表弟！！！非常感谢（111<code>rmb</code>/一位）分享漏洞挖掘、经验等</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/1kbfree/ylvvhzoh5splt469df590ir6/xmq.jpg" alt="xmq.jpg-47.5kB"></p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://only-free.github.into" class="b-link-green">only_free blog</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/05/29/xin-xi-shou-ji-zhi-wo-jian/" class="b-link-green">信息收集之我见</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'e4a00225a8ce0411166b',
+        clientSecret: '1d6d28b5dffe48a2a0c13a8417df522474c99103',
+        repo: 'only-free.github.io',
+        owner: 'only-free',
+        admin: "only-free",
+        id: '2019-05-29T00-29-20',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Current</div>
+            <div class="card">
+                <a href="/2019/05/29/xin-xi-shou-ji-zhi-wo-jian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="信息收集之我见">
+                        
+                        <span class="card-title">信息收集之我见</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+来源网络，回馈网络
+
+对一个网站挖掘的深浅来说就得看你收集的如何，这说明信息收集在漏洞挖掘中是非常的重要的。
+子域名收集子域名收集是最简单的收集手法之一，有很多在线的工具可以直接套用，这里分享几个我经常用的。
+开心的时候用用这个扫描器为什</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            only_free
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/信息收集/" target="_blank">
+                        <span class="chip bg-color">信息收集</span>
+                    </a>
+                    
+                    <a href="/tags/Web安全/" target="_blank">
+                        <span class="chip bg-color">Web安全</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2019/05/23/dui-web-an-quan-de-yi-xie-jing-yan-fen-xiang-url-tiao-zhuan-pian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="对web安全的一些经验分享[url跳转篇]">
+                        
+                        <span class="card-title">对web安全的一些经验分享[url跳转篇]</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">今年是挖洞的一年了，也对web安全产生了感情，之前盲目于一直挖洞每天技术都没什么增长，多的仅是那么一点点的经验，而且通过这次的护网行动，也看出了自己的很多不足，说白了就是很菜然后自己还没看清自己，所以接下来的日子里，自己都会尽量去接触一些自</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            only_free
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/经验分享/" target="_blank">
+                        <span class="chip bg-color">经验分享</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">TOC</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            在心灵的深处，敞开的希望是自由。
+            <br> 本站总访问 <span id="busuanzi_value_site_pv"></span> 次
+        </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="col s12 m4 l4 social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</body>
+</html>

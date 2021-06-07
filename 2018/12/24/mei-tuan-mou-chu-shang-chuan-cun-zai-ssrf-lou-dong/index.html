@@ -1,0 +1,679 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="美团某处上传存在SSRF漏洞, keywords">
+    <meta name="description" content="1、打开Url：http://xxx.com/profile ，然后选择一个图片上传然后抓包发现有如下请求
+
+然后我猜想这里的处理流程是这样的：
+
+上传文件后返回包返回一个Url
+然后上图那个请求把一部的Url去访问并且使其成为图片地址（应">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>美团某处上传存在SSRF漏洞 | only_free blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">only_free blog</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>档案</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/mubiao" class="waves-effect waves-light">
+            
+            <i class="fa fa-volume-up"></i>
+            
+            <span>目标</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">only_free blog</div>
+        <div class="logo-desc">
+            
+            十年寒窗无人问，一举成名天下知。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                档案
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/mubiao" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-volume-up"></i>
+                
+                目标
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        美团某处上传存在SSRF漏洞
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+            <span class="chip bg-color"><span id="busuanzi_value_page_pv"></span> ℃</span>
+                
+                <a href="/tags/漏洞案例/" target="_blank">
+                    <span class="chip bg-color">漏洞案例</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/Web安全/" class="post-category" target="_blank">
+                        Web安全
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-24
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>1、打开Url：<a href="http://xxx.com/profile" target="_blank" rel="noopener">http://xxx.com/profile</a> ，然后选择一个图片上传然后抓包发现有如下请求</p>
+<p><img src="http://static.zybuluo.com/1kbfree/27tbui8q7e9x7ravx8jivzdk/1.png" alt="1.png-220kB"></p>
+<p>然后我猜想这里的处理流程是这样的：</p>
+<ol>
+<li>上传文件后返回包返回一个<code>Url</code></li>
+<li>然后上图那个请求把一部的<code>Url</code>去访问并且使其成为图片地址（应该是读取<code>Url</code>然后把它内容写入~）</li>
+</ol>
+<p>那么以上流程如果<code>Url</code>没有严格过滤的话是会造成<code>SSRF</code>的，但是这里有过滤，但仍可以绕过~</p>
+<pre><code>http://p1.meituan.net.127.0.0.1.xip.io
+</code></pre><p>上面这个<code>url</code>打开等于打开<code>127.0.0.1</code>（<code>ping</code>一下就知道了）</p>
+<p><img src="http://static.zybuluo.com/1kbfree/n4bivtodu7857uam9n5yh55x/1.png" alt="1.png-24.5kB"></p>
+<p>这里去请求一下我的<code>ceye</code>（和<code>dnslog</code>一样的）</p>
+<p><img src="http://static.zybuluo.com/1kbfree/d3m6dlql5t7zg646b6chlcmv/1.png" alt="1.png-232.5kB"></p>
+<p>然后去我的<code>CEYE</code>去看下~</p>
+<p><img src="http://static.zybuluo.com/1kbfree/t1ejl7jg1dimuvvkr8fx0fwb/image.png" alt="image.png-110.8kB"></p>
+<p>可以看到他这里是有去请求的，那么还可以利用<code>CEYE</code>的<code>DNS Rebinding</code>使其去访问一个<code>ip</code>（比较麻烦），所以这里用另一种方法来使其访问随意一个<code>ip</code></p>
+<pre><code>http://p1.meituan.net.183.232.231.172.xip.io/
+</code></pre><p>这里的<code>183.232.231.172</code>是我<code>ping</code>百度的<code>ip</code>，然后我打开一下看看~</p>
+<p><img src="http://static.zybuluo.com/1kbfree/lz0psyxavxnf65hxnnclmgv6/1.png" alt="1.png-32.9kB"></p>
+<p>然后放入请求中是可以正常访问的，如图</p>
+<p><img src="http://static.zybuluo.com/1kbfree/yakvfdjz5uwlo28t22u6545v/1.png" alt="1.png-234.5kB"></p>
+<p>那么再测试一个无法访问的<code>ip</code>试试</p>
+<p><img src="http://static.zybuluo.com/1kbfree/q6qy5t0ntzztbjpmlh6sq0p5/1.png" alt="1.png-254.4kB"></p>
+<p>可以看到返回的是<code>504</code>而且请求时间非常的长~ </p>
+<p>下面探测内网的就不展示了。</p>
+<h3 id="漏洞进展"><a href="#漏洞进展" class="headerlink" title="漏洞进展"></a>漏洞进展</h3><p>评级：中<br>奖金：250</p>
+<blockquote>
+<p>因为非核心业务所以给的钱比较少</p>
+</blockquote>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://only-free.github.into" class="b-link-green">only_free blog</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/12/24/mei-tuan-mou-chu-shang-chuan-cun-zai-ssrf-lou-dong/" class="b-link-green">美团某处上传存在SSRF漏洞</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'e4a00225a8ce0411166b',
+        clientSecret: '1d6d28b5dffe48a2a0c13a8417df522474c99103',
+        repo: 'only-free.github.io',
+        owner: 'only-free',
+        admin: "only-free",
+        id: '2018-12-24T12-57-31',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/12/24/yi-ge-you-qu-de-si-lu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="一个有趣的思路">
+                        
+                        <span class="card-title">一个有趣的思路</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">首先，正常打开I春秋页面（https://bbs.ichunqiu.com/portal.php）
+
+然后手贱一下加上一个alert(1)试试~（https://bbs.ichunqiu.com/portal.php?a=alert(1)）</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Web安全/" class="post-category" target="_blank">
+                                    Web安全
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/漏洞案例/" target="_blank">
+                        <span class="chip bg-color">漏洞案例</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/12/23/ce-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="测试">
+                        
+                        <span class="card-title">测试</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">介绍这是一个文件上传的靶场（总共19关）
+下载地址：https://github.com/c0ny1/upload-labs
+过程第一关：
+
+可以看到这里的上传的验证是javascript验证的，也就是前台认证，但是我们可以利用后台验证绕过</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            only_free
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/php/" target="_blank">
+                        <span class="chip bg-color">php</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">TOC</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            在心灵的深处，敞开的希望是自由。
+            <br> 本站总访问 <span id="busuanzi_value_site_pv"></span> 次
+        </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="col s12 m4 l4 social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</body>
+</html>

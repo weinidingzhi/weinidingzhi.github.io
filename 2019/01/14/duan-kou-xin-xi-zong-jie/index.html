@@ -1,0 +1,805 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="端口信息总结, keywords">
+    <meta name="description" content="端口：0服务：Reserved说明：通常用于分析操作系统。这一方法能够工作是因为在一些系统中“0”是无效端口，当你试图使用通常的闭合端口连接它时将产生不同的结果。一种典型的扫描，使用IP地址为0.0.0.0，设置ACK位并在以太网层广播。 ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>端口信息总结 | only_free blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">only_free blog</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>档案</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/mubiao" class="waves-effect waves-light">
+            
+            <i class="fa fa-volume-up"></i>
+            
+            <span>目标</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">only_free blog</div>
+        <div class="logo-desc">
+            
+            十年寒窗无人问，一举成名天下知。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                档案
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/mubiao" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-volume-up"></i>
+                
+                目标
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        端口信息总结
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+            <span class="chip bg-color"><span id="busuanzi_value_page_pv"></span> ℃</span>
+                
+                <a href="/tags/端口/" target="_blank">
+                    <span class="chip bg-color">端口</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/转载/" class="post-category" target="_blank">
+                        转载
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-14
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="端口：0"><a href="#端口：0" class="headerlink" title="端口：0"></a>端口：0</h3><p>服务：Reserved<br>说明：通常用于分析操作系统。这一方法能够工作是因为在一些系统中“0”是无效端口，当你试图使用通常的闭合端口连接它时将产生不同的结果。一种典型的扫描，使用IP地址为0.0.0.0，设置ACK位并在以太网层广播。 </p>
+<h3 id="端口：1"><a href="#端口：1" class="headerlink" title="端口：1"></a>端口：1</h3><p>服务：tcpmux<br>说明：这显示有人在寻找SGI<br>Irix机器。Irix是实现tcpmux的主要提供者，默认情况下tcpmux在这种系统中被打开。Irix机器在发布是含有几个默认的无密码的帐户，如：IP、GUEST<br>UUCP、NUUCP、DEMOS<br>、TUTOR、DIAG、OUTOFBOX等。许多管理员在安装后忘记删除这些帐户。因此HACKER在INTERNET上搜索tcpmux并利用这些帐户。</p>
+<h3 id="端口：7"><a href="#端口：7" class="headerlink" title="端口：7"></a>端口：7</h3><p>服务：Echo<br>说明：能看到许多人搜索Fraggle放大器时，发送到X.X.X.0和X.X.X.255的信息。 </p>
+<h3 id="端口：19"><a href="#端口：19" class="headerlink" title="端口：19"></a>端口：19</h3><p>服务：Character<br>Generator<br>说明：这是一种仅仅发送字符的服务。UDP版本将会在收到UDP包后回应含有垃圾字符的包。TCP连接时会发送含有垃圾字符的数据流直到连接关闭。HACKER利用IP欺骗可以发动DoS攻击。伪造两个chargen服务器之间的UDP包。同样Fraggle<br>DoS攻击向目标地址的这个端口广播一个带有伪造受害者IP的数据包，受害者为了回应这些数据而过载。</p>
+<h3 id="端口：21"><a href="#端口：21" class="headerlink" title="端口：21"></a>端口：21</h3><p>服务：FTP<br>说明：FTP服务器所开放的端口，用于上传、下载。最常见的攻击者用于寻找打开anonymous的FTP服务器的方法。这些服务器带有可读写的目录。木马Doly<br>Trojan、Fore、Invisible FTP、WebEx、WinCrash和Blade<br>Runner所开放的端口。</p>
+<h3 id="端口：22"><a href="#端口：22" class="headerlink" title="端口：22"></a>端口：22</h3><p>服务：Ssh<br>说明：PcAnywhere建立的TCP和这一端口的连接可能是为了寻找ssh。这一服务有许多弱点，如果配置成特定的模式，许多使用RSAREF库的版本就会有不少的漏洞存在。</p>
+<h3 id="端口：23"><a href="#端口：23" class="headerlink" title="端口：23"></a>端口：23</h3><p>服务：Telnet<br>说明：远程登录，入侵者在搜索远程登录UNIX的服务。大多数情况下扫描这一端口是为了找到机器运行的操作系统。还有使用其他技术，入侵者也会找到密码。木马Tiny<br>Telnet<br>Server就开放这个端口。</p>
+<h3 id="端口：25"><a href="#端口：25" class="headerlink" title="端口：25"></a>端口：25</h3><p>服务：SMTP<br>说明：SMTP服务器所开放的端口，用于发送邮件。入侵者寻找SMTP服务器是为了传递他们的SPAM。入侵者的帐户被关闭，他们需要连接到高带宽的E-MAIL服务器上，将简单的信息传递到不同的地址。木马Antigen、Email<br>Password Sender、Haebu Coceda、Shtrilitz<br>Stealth、WinPC、WinSpy都开放这个端口。</p>
+<h3 id="端口：31"><a href="#端口：31" class="headerlink" title="端口：31"></a>端口：31</h3><p>服务：MSG<br>Authentication<br>说明：木马Master Paradise、Hackers<br>Paradise开放此端口。</p>
+<h3 id="端口：42"><a href="#端口：42" class="headerlink" title="端口：42"></a>端口：42</h3><p>服务：WINS<br>Replication<br>说明：WINS复制</p>
+<h3 id="端口：53"><a href="#端口：53" class="headerlink" title="端口：53"></a>端口：53</h3><p>服务：Domain Name<br>Server（DNS）<br>说明：DNS服务器所开放的端口，入侵者可能是试图进行区域传递（TCP），欺骗DNS（UDP）或隐藏其他的通信。因此防火墙常常过滤或记录此端口。</p>
+<h3 id="端口：67"><a href="#端口：67" class="headerlink" title="端口：67"></a>端口：67</h3><p>服务：Bootstrap<br>Protocol Server<br>说明：通过DSL和Cable<br>modem的防火墙常会看见大量发送到广播地址255.255.255.255的数据。这些机器在向DHCP服务器请求一个地址。HACKER常进入它们，分配一个地址把自己作为局部路由器而发起大量中间人（man-in-middle）攻击。客户端向68端口广播请求配置，服务器向67端口广播回应请求。这种回应使用广播是因为客户端还不知道可以发送的IP地址。<br>DHCP (UDP ports 67 and 68)</p>
+<h3 id="端口：69"><a href="#端口：69" class="headerlink" title="端口：69"></a>端口：69</h3><p>服务：Trival<br>File<br>Transfer<br>说明：许多服务器与bootp一起提供这项服务，便于从系统下载启动代码。但是它们常常由于错误配置而使入侵者能从系统中窃取任何文件。它们也可用于系统写入文件。 </p>
+<h3 id="端口：79"><a href="#端口：79" class="headerlink" title="端口：79"></a>端口：79</h3><p>服务：Finger<br>Server<br>说明：入侵者用于获得用户信息，查询操作系统，探测已知的缓冲区溢出错误，回应从自己机器到其他机器Finger扫描。</p>
+<h3 id="端口：80"><a href="#端口：80" class="headerlink" title="端口：80"></a>端口：80</h3><p>服务：HTTP<br>说明：用于网页浏览。木马Executor开放此端口。</p>
+<h3 id="端口：99"><a href="#端口：99" class="headerlink" title="端口：99"></a>端口：99</h3><p>服务：Metagram<br>Relay<br>说明：后门程序ncx99开放此端口。</p>
+<h3 id="端口：102"><a href="#端口：102" class="headerlink" title="端口：102"></a>端口：102</h3><p>服务：Message transfer<br>agent(MTA)-X.400 over TCP/IP<br>说明：消息传输代理。</p>
+<h3 id="端口：109"><a href="#端口：109" class="headerlink" title="端口：109"></a>端口：109</h3><p>服务：Post Office<br>Protocol<br>-Version3<br>说明：POP3服务器开放此端口，用于接收邮件，客户端访问服务器端的邮件服务。POP3服务有许多公认的弱点。关于用户名和密码交换缓冲区溢出的弱点至少有20个，这意味着入侵者可以在真正登陆前进入系统。成功登陆后还有其他缓冲区溢出错误。</p>
+<h3 id="端口：110"><a href="#端口：110" class="headerlink" title="端口：110"></a>端口：110</h3><p>服务：SUN公司的RPC服务所有端口<br>说明：常见RPC服务有rpc.mountd、NFS、rpc.statd、rpc.csmd、rpc.ttybd、amd等</p>
+<h3 id="端口：113"><a href="#端口：113" class="headerlink" title="端口：113"></a>端口：113</h3><p>服务：Authentication<br>Service<br>说明：这是一个许多计算机上运行的协议，用于鉴别TCP连接的用户。使用标准的这种服务可以获得许多计算机的信息。但是它可作为许多服务的记录器，尤其是FTP、POP、IMAP、SMTP和IRC等服务。通常如果有许多客户通过防火墙访问这些服务，将会看到许多这个端口的连接请求。记住，如果阻断这个端口客户端会感觉到在防火墙另一边与E-MAIL服务器的缓慢连接。许多防火墙支持TCP连接的阻断过程中发回RST。这将会停止缓慢的连接。</p>
+<h3 id="端口：119"><a href="#端口：119" class="headerlink" title="端口：119"></a>端口：119</h3><p>服务：Network<br>News Transfer<br>Protocol<br>说明：NEWS新闻组传输协议，承载USENET通信。这个端口的连接通常是人们在寻找USENET服务器。多数ISP限制，只有他们的客户才能访问他们的新闻组服务器。打开新闻组服务器将允许发/读任何人的帖子，访问被限制的新闻组服务器，匿名发帖或发送SPAM。</p>
+<h3 id="端口：135"><a href="#端口：135" class="headerlink" title="端口：135"></a>端口：135</h3><p>服务：Location<br>Service<br>说明：Microsoft在这个端口运行DCE RPC end-point mapper为它的DCOM服务。这与UNIX<br>111端口的功能很相似。使用DCOM和RPC的服务利用计算机上的end-point<br>mapper注册它们的位置。远端客户连接到计算机时，它们查找end-point<br>mapper找到服务的位置。HACKER扫描计算机的这个端口是为了找到这个计算机上运行Exchange<br>Server吗？什么版本？还有些DOS攻击直接针对这个端口。</p>
+<h3 id="端口：137、138、139"><a href="#端口：137、138、139" class="headerlink" title="端口：137、138、139"></a>端口：137、138、139</h3><p>服务：NETBIOS Name<br>Service<br>说明：其中137、138是UDP端口，当通过网上邻居传输文件时用这个端口。而139端口通过这个端口进入的连接试图获得NetBIOS/SMB服务。这个协议被用于windows文件和打印机共享和SAMBA。还有WINS<br>Regisrtation也用它。 </p>
+<h3 id="端口：143"><a href="#端口：143" class="headerlink" title="端口：143"></a>端口：143</h3><p>服务：Interim Mail Access Protocol<br>v2<br>说明：和POP3的安全问题一样，许多IMAP服务器存在有缓冲区溢出漏洞。记住：一种Linux蠕虫（admv0rm）会通过这个端口繁殖，因此许多这个端口的扫描来自不知情的已经被感染的用户。当REDHAT在他们的LINUX发布版本中默认允许IMAP后，这些漏洞变的很流行。这一端口还被用于IMAP2，但并不流行。</p>
+<h3 id="端口：161"><a href="#端口：161" class="headerlink" title="端口：161"></a>端口：161</h3><p>服务：SNMP<br>说明：SNMP允许远程管理设备。所有配置和运行信息的储存在数据库中，通过SNMP可获得这些信息。许多管理员的错误配置将被暴露在Internet。Cackers将试图使用默认的密码public、private访问系统。他们可能会试验所有可能的组合。SNMP包可能会被错误的指向用户的网络。</p>
+<h3 id="端口：177"><a href="#端口：177" class="headerlink" title="端口：177"></a>端口：177</h3><p>服务：X<br>Display Manager Control<br>Protocol<br>说明：许多入侵者通过它访问X-windows操作台，它同时需要打开6000端口。</p>
+<h3 id="端口：389"><a href="#端口：389" class="headerlink" title="端口：389"></a>端口：389</h3><p>服务：LDAP、ILS<br>说明：轻型目录访问协议和NetMeeting<br>Internet Locator<br>Server共用这一端口。</p>
+<h3 id="端口：443"><a href="#端口：443" class="headerlink" title="端口：443"></a>端口：443</h3><p>服务：Https<br>说明：网页浏览端口，能提供加密和通过安全端口传输的另一种HTTP。</p>
+<h3 id="端口：456"><a href="#端口：456" class="headerlink" title="端口：456"></a>端口：456</h3><p>服务：[NULL]<br>说明：木马HACKERS<br>PARADISE开放此端口。</p>
+<h3 id="端口：513"><a href="#端口：513" class="headerlink" title="端口：513"></a>端口：513</h3><p>服务：Login,remote login<br>说明：是从使用cable<br>modem或DSL登陆到子网中的UNIX计算机发出的广播。这些人为入侵者进入他们的系统提供了信息。</p>
+<h3 id="端口：544"><a href="#端口：544" class="headerlink" title="端口：544"></a>端口：544</h3><p>服务：[NULL]<br>说明：kerberos kshell</p>
+<h3 id="端口：548"><a href="#端口：548" class="headerlink" title="端口：548"></a>端口：548</h3><p>服务：Macintosh,File<br>Services(AFP/IP)<br>说明：Macintosh,文件服务。</p>
+<h3 id="端口：553"><a href="#端口：553" class="headerlink" title="端口：553"></a>端口：553</h3><p>服务：CORBA IIOP<br>（UDP）<br>说明：使用cable<br>modem、DSL或VLAN将会看到这个端口的广播。CORBA是一种面向对象的RPC系统。入侵者可以利用这些信息进入系统。</p>
+<h3 id="端口：555"><a href="#端口：555" class="headerlink" title="端口：555"></a>端口：555</h3><p>服务：DSF<br>说明：木马PhAse1.0、Stealth<br>Spy、IniKiller开放此端口。</p>
+<h3 id="端口：568"><a href="#端口：568" class="headerlink" title="端口：568"></a>端口：568</h3><p>服务：Membership DPA<br>说明：成员资格<br>DPA。</p>
+<h3 id="端口：569"><a href="#端口：569" class="headerlink" title="端口：569"></a>端口：569</h3><p>服务：Membership MSN<br>说明：成员资格<br>MSN。</p>
+<h3 id="端口：635"><a href="#端口：635" class="headerlink" title="端口：635"></a>端口：635</h3><p>服务：mountd<br>说明：Linux的mountd<br>Bug。这是扫描的一个流行BUG。大多数对这个端口的扫描是基于UDP的，但是基于TCP的mountd有所增加（mountd同时运行于两个端口）。记住mountd可运行于任何端口（到底是哪个端口，需要在端口111做portmap查询），只是Linux默认端口是635，就像NFS通常运行于2049端口。</p>
+<h3 id="端口：636"><a href="#端口：636" class="headerlink" title="端口：636"></a>端口：636</h3><p>服务：LDAP<br>说明：SSL（Secure<br>Sockets layer）</p>
+<h3 id="端口：666"><a href="#端口：666" class="headerlink" title="端口：666"></a>端口：666</h3><p>服务：Doom Id Software<br>说明：木马Attack FTP、Satanz<br>Backdoor开放此端口</p>
+<h3 id="端口：993"><a href="#端口：993" class="headerlink" title="端口：993"></a>端口：993</h3><p>服务：IMAP<br>说明：SSL（Secure Sockets<br>layer）</p>
+<h3 id="端口：1001、1011"><a href="#端口：1001、1011" class="headerlink" title="端口：1001、1011"></a>端口：1001、1011</h3><p>服务：[NULL]<br>说明：木马Silencer、WebEx开放1001端口。木马Doly<br>Trojan开放1011端口。</p>
+<h3 id="端口：1024"><a href="#端口：1024" class="headerlink" title="端口：1024"></a>端口：1024</h3><p>服务：Reserved<br>说明：它是动态端口的开始，许多程序并不在乎用哪个端口连接网络，它们请求系统为它们分配下一个闲置端口。基于这一点分配从端口1024开始。这就是说第一个向系统发出请求的会分配到1024端口。你可以重启机器，打开Telnet，再打开一个窗口运行natstat<br>-a 将会看到Telnet被分配1024端口。还有SQL<br>session也用此端口和5000端口。</p>
+<h3 id="端口：1025、1033"><a href="#端口：1025、1033" class="headerlink" title="端口：1025、1033"></a>端口：1025、1033</h3><p>服务：1025：network blackjack<br>1033：[NULL]<br>说明：木马netspy开放这2个端口。</p>
+<h3 id="端口：1080"><a href="#端口：1080" class="headerlink" title="端口：1080"></a>端口：1080</h3><p>服务：SOCKS<br>说明：这一协议以通道方式穿过防火墙，允许防火墙后面的人通过一个IP地址访问INTERNET。理论上它应该只允许内部的通信向外到达INTERNET。但是由于错误的配置，它会允许位于防火墙外部的攻击穿过防火墙。WinGate常会发生这种错误，在加入IRC聊天室时常会看到这种情况。</p>
+<h3 id="端口：1170"><a href="#端口：1170" class="headerlink" title="端口：1170"></a>端口：1170</h3><p>服务：[NULL]<br>说明：木马Streaming<br>Audio Trojan、Psyber Stream<br>Server、Voice开放此端口。</p>
+<h3 id="端口：1234、1243、6711、6776"><a href="#端口：1234、1243、6711、6776" class="headerlink" title="端口：1234、1243、6711、6776"></a>端口：1234、1243、6711、6776</h3><p>服务：[NULL]<br>说明：木马SubSeven2.0、Ultors<br>Trojan开放1234、6776端口。木马SubSeven1.0/1.9开放1243、6711、6776端口。</p>
+<h3 id="端口：1245"><a href="#端口：1245" class="headerlink" title="端口：1245"></a>端口：1245</h3><p>服务：[NULL]<br>说明：木马Vodoo开放此端口。</p>
+<h3 id="端口：1433"><a href="#端口：1433" class="headerlink" title="端口：1433"></a>端口：1433</h3><p>服务：SQL<br>说明：Microsoft的SQL服务开放的端口。</p>
+<h3 id="端口：1492"><a href="#端口：1492" class="headerlink" title="端口：1492"></a>端口：1492</h3><p>服务：stone-design-1<br>说明：木马FTP99CMP开放此端口。</p>
+<h3 id="端口：1500"><a href="#端口：1500" class="headerlink" title="端口：1500"></a>端口：1500</h3><p>服务：RPC<br>client fixed port session<br>queries<br>说明：RPC客户固定端口会话查询</p>
+<h3 id="端口：1503"><a href="#端口：1503" class="headerlink" title="端口：1503"></a>端口：1503</h3><p>服务：NetMeeting<br>T.120<br>说明：NetMeeting<br>T.120</p>
+<h3 id="端口：1524"><a href="#端口：1524" class="headerlink" title="端口：1524"></a>端口：1524</h3><p>服务：ingress<br>说明：许多攻击脚本将安装一个后门SHELL于这个端口，尤其是针对SUN系统中Sendmail和RPC服务漏洞的脚本。如果刚安装了防火墙就看到在这个端口上的连接企图，很可能是上述原因。可以试试Telnet到用户的计算机上的这个端口，看看它是否会给你一个SHELL。连接到600/pcserver也存在这个问题。</p>
+<h3 id="端口：1600"><a href="#端口：1600" class="headerlink" title="端口：1600"></a>端口：1600</h3><p>服务：issd<br>说明：木马Shivka-Burka开放此端口。</p>
+<h3 id="端口：1720"><a href="#端口：1720" class="headerlink" title="端口：1720"></a>端口：1720</h3><p>服务：NetMeeting<br>说明：NetMeeting<br>H.233 call Setup。</p>
+<h3 id="端口：1731"><a href="#端口：1731" class="headerlink" title="端口：1731"></a>端口：1731</h3><p>服务：NetMeeting Audio Call<br>Control<br>说明：NetMeeting音频调用控制。</p>
+<h3 id="端口：1807"><a href="#端口：1807" class="headerlink" title="端口：1807"></a>端口：1807</h3><p>服务：[NULL]<br>说明：木马SpySender开放此端口。</p>
+<h3 id="端口：1981"><a href="#端口：1981" class="headerlink" title="端口：1981"></a>端口：1981</h3><p>服务：[NULL]<br>说明：木马ShockRave开放此端口。</p>
+<h3 id="端口：1999"><a href="#端口：1999" class="headerlink" title="端口：1999"></a>端口：1999</h3><p>服务：cisco<br>identification<br>port<br>说明：木马BackDoor开放此端口。</p>
+<h3 id="端口：2000"><a href="#端口：2000" class="headerlink" title="端口：2000"></a>端口：2000</h3><p>服务：[NULL]<br>说明：木马GirlFriend<br>1.3、Millenium 1.0开放此端口。</p>
+<h3 id="端口：2001"><a href="#端口：2001" class="headerlink" title="端口：2001"></a>端口：2001</h3><p>服务：[NULL]<br>说明：木马Millenium 1.0、Trojan<br>Cow开放此端口。</p>
+<h3 id="端口：2023"><a href="#端口：2023" class="headerlink" title="端口：2023"></a>端口：2023</h3><p>服务：xinuexpansion 4<br>说明：木马Pass<br>Ripper开放此端口。</p>
+<h3 id="端口：2049"><a href="#端口：2049" class="headerlink" title="端口：2049"></a>端口：2049</h3><p>服务：NFS<br>说明：NFS程序常运行于这个端口。通常需要访问Portmapper查询这个服务运行于哪个端口。</p>
+<h3 id="端口：2115"><a href="#端口：2115" class="headerlink" title="端口：2115"></a>端口：2115</h3><p>服务：[NULL]<br>说明：木马Bugs开放此端口。</p>
+<h3 id="端口：2140、3150"><a href="#端口：2140、3150" class="headerlink" title="端口：2140、3150"></a>端口：2140、3150</h3><p>服务：[NULL]<br>说明：木马Deep<br>Throat 1.0/3.0开放此端口。</p>
+<h3 id="端口：2500"><a href="#端口：2500" class="headerlink" title="端口：2500"></a>端口：2500</h3><p>服务：RPC client using a fixed port session<br>replication<br>说明：应用固定端口会话复制的RPC客户</p>
+<h3 id="端口：2583"><a href="#端口：2583" class="headerlink" title="端口：2583"></a>端口：2583</h3><p>服务：[NULL]<br>说明：木马Wincrash<br>2.0开放此端口。</p>
+<h3 id="端口：2801"><a href="#端口：2801" class="headerlink" title="端口：2801"></a>端口：2801</h3><p>服务：[NULL]<br>说明：木马Phineas<br>Phucker开放此端口。</p>
+<h3 id="端口：3024、4092"><a href="#端口：3024、4092" class="headerlink" title="端口：3024、4092"></a>端口：3024、4092</h3><p>服务：[NULL]<br>说明：木马WinCrash开放此端口。</p>
+<h3 id="端口：3128"><a href="#端口：3128" class="headerlink" title="端口：3128"></a>端口：3128</h3><p>服务：squid<br>说明：这是squid<br>HTTP代理服务器的默认端口。攻击者扫描这个端口是为了搜寻一个代理服务器而匿名访问Internet。也会看到搜索其他代理服务器的端口8000、8001、8080、8888。扫描这个端口的另一个原因是用户正在进入聊天室。其他用户也会检验这个端口以确定用户的机器是否支持代理。</p>
+<h3 id="端口：3129"><a href="#端口：3129" class="headerlink" title="端口：3129"></a>端口：3129</h3><p>服务：[NULL]<br>说明：木马Master<br>Paradise开放此端口。</p>
+<h3 id="端口：3150"><a href="#端口：3150" class="headerlink" title="端口：3150"></a>端口：3150</h3><p>服务：[NULL]<br>说明：木马The<br>Invasor开放此端口。</p>
+<h3 id="端口：3210、4321"><a href="#端口：3210、4321" class="headerlink" title="端口：3210、4321"></a>端口：3210、4321</h3><p>服务：[NULL]<br>说明：木马SchoolBus开放此端口</p>
+<h3 id="端口：3333"><a href="#端口：3333" class="headerlink" title="端口：3333"></a>端口：3333</h3><p>服务：dec-notes<br>说明：木马Prosiak开放此端口</p>
+<h3 id="端口：3389"><a href="#端口：3389" class="headerlink" title="端口：3389"></a>端口：3389</h3><p>服务：超级终端<br>说明：WINDOWS<br>2000终端开放此端口。</p>
+<h3 id="端口：3700"><a href="#端口：3700" class="headerlink" title="端口：3700"></a>端口：3700</h3><p>服务：[NULL]<br>说明：木马Portal of<br>Doom开放此端口</p>
+<h3 id="端口：3996、4060"><a href="#端口：3996、4060" class="headerlink" title="端口：3996、4060"></a>端口：3996、4060</h3><p>服务：[NULL]<br>说明：木马RemoteAnything开放此端口</p>
+<h3 id="端口：4000"><a href="#端口：4000" class="headerlink" title="端口：4000"></a>端口：4000</h3><p>服务：QQ客户端<br>说明：腾讯QQ客户端开放此端口。</p>
+<h3 id="端口：4092"><a href="#端口：4092" class="headerlink" title="端口：4092"></a>端口：4092</h3><p>服务：[NULL]<br>说明：木马WinCrash开放此端口。</p>
+<h3 id="端口：4590"><a href="#端口：4590" class="headerlink" title="端口：4590"></a>端口：4590</h3><p>服务：[NULL]<br>说明：木马ICQTrojan开放此端口。</p>
+<h3 id="端口：5000、5001、5321、50505"><a href="#端口：5000、5001、5321、50505" class="headerlink" title="端口：5000、5001、5321、50505"></a>端口：5000、5001、5321、50505</h3><p>服务：[NULL]<br>说明：木马blazer5开放5000端口。木马Sockets<br>de<br>Troie开放5000、5001、5321、50505端口。</p>
+<h3 id="端口：5400、5401、5402"><a href="#端口：5400、5401、5402" class="headerlink" title="端口：5400、5401、5402"></a>端口：5400、5401、5402</h3><p>服务：[NULL]<br>说明：木马Blade<br>Runner开放此端口。</p>
+<h3 id="端口：5550"><a href="#端口：5550" class="headerlink" title="端口：5550"></a>端口：5550</h3><p>服务：[NULL]<br>说明：木马xtcp开放此端口。</p>
+<h3 id="端口：5569"><a href="#端口：5569" class="headerlink" title="端口：5569"></a>端口：5569</h3><p>服务：[NULL]<br>说明：木马Robo-Hack开放此端口。</p>
+<h3 id="端口：5632"><a href="#端口：5632" class="headerlink" title="端口：5632"></a>端口：5632</h3><p>服务：pcAnywere<br>说明：有时会看到很多这个端口的扫描，这依赖于用户所在的位置。当用户打开pcAnywere时，它会自动扫描局域网C类网以寻找可能的代理（这里的代理是指agent而不是proxy）。入侵者也会寻找开放这种服务的计算机。，所以应该查看这种扫描的源地址。一些搜寻pcAnywere的扫描包常含端口22的UDP数据包。</p>
+<h3 id="端口：5742"><a href="#端口：5742" class="headerlink" title="端口：5742"></a>端口：5742</h3><p>服务：[NULL]<br>说明：木马WinCrash1.03开放此端口。</p>
+<h3 id="端口：6267"><a href="#端口：6267" class="headerlink" title="端口：6267"></a>端口：6267</h3><p>服务：[NULL]<br>说明：木马广外女生开放此端口。</p>
+<h3 id="端口：6400"><a href="#端口：6400" class="headerlink" title="端口：6400"></a>端口：6400</h3><p>服务：[NULL]<br>说明：木马The<br>tHing开放此端口。</p>
+<h3 id="端口：6670、6671"><a href="#端口：6670、6671" class="headerlink" title="端口：6670、6671"></a>端口：6670、6671</h3><p>服务：[NULL]<br>说明：木马Deep Throat开放6670端口。而Deep<br>Throat<br>3.0开放6671端口。</p>
+<h3 id="端口：6883"><a href="#端口：6883" class="headerlink" title="端口：6883"></a>端口：6883</h3><p>服务：[NULL]<br>说明：木马DeltaSource开放此端口。</p>
+<h3 id="端口：6969"><a href="#端口：6969" class="headerlink" title="端口：6969"></a>端口：6969</h3><p>服务：[NULL]<br>说明：木马Gatecrasher、Priority开放此端口。</p>
+<h3 id="端口：6970"><a href="#端口：6970" class="headerlink" title="端口：6970"></a>端口：6970</h3><p>服务：RealAudio<br>说明：RealAudio客户将从服务器的6970-7170的UDP端口接收音频数据流。这是由TCP-7070端口外向控制连接设置的。</p>
+<h3 id="端口：7000"><a href="#端口：7000" class="headerlink" title="端口：7000"></a>端口：7000</h3><p>服务：[NULL]<br>说明：木马Remote<br>Grab开放此端口。</p>
+<h3 id="端口：7300、7301、7306、7307、7308"><a href="#端口：7300、7301、7306、7307、7308" class="headerlink" title="端口：7300、7301、7306、7307、7308"></a>端口：7300、7301、7306、7307、7308</h3><p>服务：[NULL]<br>说明：木马NetMonitor开放此端口。另外NetSpy1.0也开放7306端口。</p>
+<h3 id="端口：7323"><a href="#端口：7323" class="headerlink" title="端口：7323"></a>端口：7323</h3><p>服务：[NULL]<br>说明：Sygate服务器端。</p>
+<h3 id="端口：7626"><a href="#端口：7626" class="headerlink" title="端口：7626"></a>端口：7626</h3><p>服务：[NULL]<br>说明：木马Giscier开放此端口。</p>
+<h3 id="端口：7789"><a href="#端口：7789" class="headerlink" title="端口：7789"></a>端口：7789</h3><p>服务：[NULL]<br>说明：木马ICKiller开放此端口。</p>
+<h3 id="端口：8000"><a href="#端口：8000" class="headerlink" title="端口：8000"></a>端口：8000</h3><p>服务：OICQ<br>说明：腾讯QQ服务器端开放此端口。</p>
+<h3 id="端口：8010"><a href="#端口：8010" class="headerlink" title="端口：8010"></a>端口：8010</h3><p>服务：Wingate<br>说明：Wingate代理开放此端口。</p>
+<h3 id="端口：8080"><a href="#端口：8080" class="headerlink" title="端口：8080"></a>端口：8080</h3><p>服务：代理端口<br>说明：WWW代理开放此端口。</p>
+<h3 id="端口：9400、9401、9402"><a href="#端口：9400、9401、9402" class="headerlink" title="端口：9400、9401、9402"></a>端口：9400、9401、9402</h3><p>服务：[NULL]<br>说明：木马Incommand<br>1.0开放此端口。</p>
+<h3 id="端口：9872、9873、9874、9875、10067、10167"><a href="#端口：9872、9873、9874、9875、10067、10167" class="headerlink" title="端口：9872、9873、9874、9875、10067、10167"></a>端口：9872、9873、9874、9875、10067、10167</h3><p>服务：[NULL]<br>说明：木马Portal<br>of<br>Doom开放此端口。</p>
+<h3 id="端口：9989"><a href="#端口：9989" class="headerlink" title="端口：9989"></a>端口：9989</h3><p>服务：[NULL]<br>说明：木马iNi-Killer开放此端口。</p>
+<h3 id="端口：11000"><a href="#端口：11000" class="headerlink" title="端口：11000"></a>端口：11000</h3><p>服务：[NULL]<br>说明：木马SennaSpy开放此端口。</p>
+<h3 id="端口：11223"><a href="#端口：11223" class="headerlink" title="端口：11223"></a>端口：11223</h3><p>服务：[NULL]<br>说明：木马Progenic<br>trojan开放此端口。</p>
+<h3 id="端口：12076、61466"><a href="#端口：12076、61466" class="headerlink" title="端口：12076、61466"></a>端口：12076、61466</h3><p>服务：[NULL]<br>说明：木马Telecommando开放此端口。</p>
+<h3 id="端口：12223"><a href="#端口：12223" class="headerlink" title="端口：12223"></a>端口：12223</h3><p>服务：[NULL]<br>说明：木马Hack’99<br>KeyLogger开放此端口。</p>
+<h3 id="端口：12345、12346"><a href="#端口：12345、12346" class="headerlink" title="端口：12345、12346"></a>端口：12345、12346</h3><p>服务：[NULL]<br>说明：木马NetBus1.60/1.70、GabanBus开放此端口。</p>
+<h3 id="端口：12361"><a href="#端口：12361" class="headerlink" title="端口：12361"></a>端口：12361</h3><p>服务：[NULL]<br>说明：木马Whack-a-mole开放此端口。</p>
+<h3 id="端口：13223"><a href="#端口：13223" class="headerlink" title="端口：13223"></a>端口：13223</h3><p>服务：PowWow<br>说明：PowWow是Tribal<br>Voice的聊天程序。它允许用户在此端口打开私人聊天的连接。这一程序对于建立连接非常具有攻击性。它会驻扎在这个TCP端口等回应。造成类似心跳间隔的连接请求。如果一个拨号用户从另一个聊天者手中继承了IP地址就会发生好象有很多不同的人在测试这个端口的情况。这一协议使用OPNG作为其连接请求的前4个字节。</p>
+<h3 id="端口：16969"><a href="#端口：16969" class="headerlink" title="端口：16969"></a>端口：16969</h3><p>服务：[NULL]<br>说明：木马Priority开放此端口。</p>
+<h3 id="端口：17027"><a href="#端口：17027" class="headerlink" title="端口：17027"></a>端口：17027</h3><p>服务：Conducent<br>说明：这是一个外向连接。这是由于公司内部有人安装了带有Conducent”adbot”的共享软件。Conducent”adbot”是为共享软件显示广告服务的。使用这种服务的一种流行的软件是Pkware。</p>
+<h3 id="端口：19191"><a href="#端口：19191" class="headerlink" title="端口：19191"></a>端口：19191</h3><p>服务：[NULL]<br>说明：木马蓝色火焰开放此端口。</p>
+<h3 id="端口：20000、20001"><a href="#端口：20000、20001" class="headerlink" title="端口：20000、20001"></a>端口：20000、20001</h3><p>服务：[NULL]<br>说明：木马Millennium开放此端口。</p>
+<h3 id="端口：20034"><a href="#端口：20034" class="headerlink" title="端口：20034"></a>端口：20034</h3><p>服务：[NULL]<br>说明：木马NetBus<br>Pro开放此端口。</p>
+<h3 id="端口：21554"><a href="#端口：21554" class="headerlink" title="端口：21554"></a>端口：21554</h3><p>服务：[NULL]<br>说明：木马GirlFriend开放此端口。</p>
+<h3 id="端口：22222"><a href="#端口：22222" class="headerlink" title="端口：22222"></a>端口：22222</h3><p>服务：[NULL]<br>说明：木马Prosiak开放此端口。</p>
+<h3 id="端口：23456"><a href="#端口：23456" class="headerlink" title="端口：23456"></a>端口：23456</h3><p>服务：[NULL]<br>说明：木马Evil<br>FTP、Ugly<br>FTP开放此端口。</p>
+<h3 id="端口：26274、47262"><a href="#端口：26274、47262" class="headerlink" title="端口：26274、47262"></a>端口：26274、47262</h3><p>服务：[NULL]<br>说明：木马Delta开放此端口。</p>
+<h3 id="端口：27374"><a href="#端口：27374" class="headerlink" title="端口：27374"></a>端口：27374</h3><p>服务：[NULL]<br>说明：木马Subseven<br>2.1开放此端口。</p>
+<h3 id="端口：30100"><a href="#端口：30100" class="headerlink" title="端口：30100"></a>端口：30100</h3><p>服务：[NULL]<br>说明：木马NetSphere开放此端口。</p>
+<h3 id="端口：30303"><a href="#端口：30303" class="headerlink" title="端口：30303"></a>端口：30303</h3><p>服务：[NULL]<br>说明：木马Socket23开放此端口。</p>
+<h3 id="端口：30999"><a href="#端口：30999" class="headerlink" title="端口：30999"></a>端口：30999</h3><p>服务：[NULL]<br>说明：木马Kuang开放此端口。</p>
+<h3 id="端口：31337、31338"><a href="#端口：31337、31338" class="headerlink" title="端口：31337、31338"></a>端口：31337、31338</h3><p>服务：[NULL]<br>说明：木马BO(Back<br>Orifice)开放此端口。另外木马DeepBO也开放31338端口。</p>
+<h3 id="端口：31339"><a href="#端口：31339" class="headerlink" title="端口：31339"></a>端口：31339</h3><p>服务：[NULL]<br>说明：木马NetSpy<br>DK开放此端口。</p>
+<h3 id="端口：31666"><a href="#端口：31666" class="headerlink" title="端口：31666"></a>端口：31666</h3><p>服务：[NULL]<br>说明：木马BOWhack开放此端口。</p>
+<h3 id="端口：33333"><a href="#端口：33333" class="headerlink" title="端口：33333"></a>端口：33333</h3><p>服务：[NULL]<br>说明：木马Prosiak开放此端口。</p>
+<h3 id="端口：34324"><a href="#端口：34324" class="headerlink" title="端口：34324"></a>端口：34324</h3><p>服务：[NULL]<br>说明：木马Tiny<br>Telnet Server、BigGluck、TN开放此端口。</p>
+<h3 id="端口：40412"><a href="#端口：40412" class="headerlink" title="端口：40412"></a>端口：40412</h3><p>服务：[NULL]<br>说明：木马The<br>Spy开放此端口。</p>
+<h3 id="端口：40421、40422、40423、40426、"><a href="#端口：40421、40422、40423、40426、" class="headerlink" title="端口：40421、40422、40423、40426、"></a>端口：40421、40422、40423、40426、</h3><p>服务：[NULL]<br>说明：木马Masters<br>Paradise开放此端口。</p>
+<h3 id="端口：43210、54321"><a href="#端口：43210、54321" class="headerlink" title="端口：43210、54321"></a>端口：43210、54321</h3><p>服务：[NULL]<br>说明：木马SchoolBus<br>1.0/2.0开放此端口。</p>
+<h3 id="端口：44445"><a href="#端口：44445" class="headerlink" title="端口：44445"></a>端口：44445</h3><p>服务：[NULL]<br>说明：木马Happypig开放此端口。</p>
+<h3 id="端口：50766"><a href="#端口：50766" class="headerlink" title="端口：50766"></a>端口：50766</h3><p>服务：[NULL]<br>说明：木马Fore开放此端口。</p>
+<h3 id="端口：53001"><a href="#端口：53001" class="headerlink" title="端口：53001"></a>端口：53001</h3><p>服务：[NULL]<br>说明：木马Remote<br>Windows Shutdown开放此端口。</p>
+<h3 id="端口：65000"><a href="#端口：65000" class="headerlink" title="端口：65000"></a>端口：65000</h3><p>服务：[NULL]<br>说明：木马Devil<br>1.03开放此端口。</p>
+<h3 id="端口：88"><a href="#端口：88" class="headerlink" title="端口：88"></a>端口：88</h3><p>说明：Kerberos<br>krb5。另外TCP的88端口也是这个用途。</p>
+<h3 id="端口：137"><a href="#端口：137" class="headerlink" title="端口：137"></a>端口：137</h3><p>说明：SQL Named Pipes encryption over other<br>protocols name lookup(其他协议名称查找上的SQL命名管道加密技术)和SQL RPC encryption over other<br>protocols name lookup(其他协议名称查找上的SQL RPC加密技术)和Wins NetBT name service(WINS<br>NetBT名称服务)和Wins Proxy都用这个端口。</p>
+<h3 id="端口：161-1"><a href="#端口：161-1" class="headerlink" title="端口：161"></a>端口：161</h3><p>说明：Simple Network Management<br>Protocol(SMTP)（简单网络管理协议）。</p>
+<h3 id="端口：162"><a href="#端口：162" class="headerlink" title="端口：162"></a>端口：162</h3><p>说明：SNMP<br>Trap（SNMP陷阱）</p>
+<h3 id="端口：445"><a href="#端口：445" class="headerlink" title="端口：445"></a>端口：445</h3><p>说明：Common Internet File<br>System(CIFS)（公共Internet文件系统）</p>
+<h3 id="端口：464"><a href="#端口：464" class="headerlink" title="端口：464"></a>端口：464</h3><p>说明：Kerberos<br>kpasswd(v5)。另外TCP的464端口也是这个用途。</p>
+<h3 id="端口：500"><a href="#端口：500" class="headerlink" title="端口：500"></a>端口：500</h3><p>说明：Internet Key<br>Exchange(IKE)（Internet密钥交换）</p>
+<h3 id="端口：1645、1812"><a href="#端口：1645、1812" class="headerlink" title="端口：1645、1812"></a>端口：1645、1812</h3><p>说明：Remot Authentication<br>Dial-In User Service(RADIUS)authentication(Routing and Remote<br>Access)(远程认证拨号用户服务)</p>
+<h3 id="端口：1646、1813"><a href="#端口：1646、1813" class="headerlink" title="端口：1646、1813"></a>端口：1646、1813</h3><p>说明：RADIUS accounting(Routing and<br>Remote Access)(RADIUS记帐（路由和远程访问）)</p>
+<h3 id="端口：1701"><a href="#端口：1701" class="headerlink" title="端口：1701"></a>端口：1701</h3><p>说明：Layer Two Tunneling<br>Protocol(L2TP)(第2层隧道协议)</p>
+<h3 id="端口：1801、3527"><a href="#端口：1801、3527" class="headerlink" title="端口：1801、3527"></a>端口：1801、3527</h3><p>说明：Microsoft Message Queue<br>Server(Microsoft消息队列服务器)。还有TCP的135、1801、2101、2103、2105也是同样的用途。</p>
+<h3 id="端口：2504"><a href="#端口：2504" class="headerlink" title="端口：2504"></a>端口：2504</h3><p>说明：Network<br>Load Balancing(网络平衡负荷)</p>
+<p>网络层—数据包的包格式里面有个很重要的字段叫做协议号。比如在传输层如果是TCP连接，那么在网络层IP包里面的协议号就将会有个值是6，如果是UDP的话那个值就是17—传输层。<br>传输层—通过接口关联(端口的字段叫做端口)—应用层。<br>用netstat –an 可以查看本机开放的端口号。 </p>
+<p>代理服务器常用端口</p>
+<p>（1）. HTTP协议代理服务器常用端口号：80/8080/3128/8081/9080<br>（2）. SOCKS代理协议服务器常用端口号：1080<br>（3）. FTP（文件传输）协议代理服务器常用端口号：21<br>（4）. Telnet（远程登录）协议代理服务器常用端口：23<br>HTTP服务器，默认的端口号为80/tcp（木马Executor开放此端口）；<br>HTTPS（securely transferring web pages）服务器，默认的端口号为443/tcp 443/udp；<br>Telnet（不安全的文本传送），默认端口号为23/tcp（木马Tiny Telnet Server所开放的端口）；<br>FTP，默认的端口号为21/tcp（木马Doly Trojan、Fore、Invisible FTP、WebEx、WinCrash和Blade Runner所开放的端口）；<br>TFTP（Trivial File Transfer Protocol ），默认的端口号为69/udp；<br>SSH（安全登录）、SCP（文件传输）、端口重定向，默认的端口号为22/tcp；<br>SMTP Simple Mail Transfer Protocol (E-mail)，默认的端口号为25/tcp（木马Antigen、Email Password Sender、Haebu Coceda、Shtrilitz Stealth、WinPC、WinSpy都开放这个端口）；<br>POP3 Post Office Protocol (E-mail) ，默认的端口号为110/tcp；<br>WebLogic，默认的端口号为7001；<br>Webshpere应用程序，默认的端口号为9080；<br>webshpere管理工具，默认的端口号为9090；<br>JBOSS，默认的端口号为8080；<br>TOMCAT，默认的端口号为8080；<br>WIN2003远程登陆，默认的端口号为3389；<br>Symantec AV/Filter for MSE ,默认端口号为 8081；<br>Oracle 数据库，默认的端口号为1521；<br>ORACLE EMCTL，默认的端口号为1158；<br>Oracle XDB（ XML 数据库），默认的端口号为8080；<br>Oracle XDB FTP服务，默认的端口号为2100；<br>MS SQL<em>SERVER数据库server，默认的端口号为1433/tcp 1433/udp；<br>MS SQL</em>SERVER数据库monitor，默认的端口号为1434/tcp 1434/udp；<br>QQ，默认的端口号为1080/udp<br>TcpMux0 1 Tcp端口服务多路复用器<br>Echo 1 7 回送(echo回送所有的接收数据)<br>Discard2 9 删除(静态删除所有接受的数据)<br>Systat3 11 当前用户<br>Daytime 13 白天<br>Quotd 17 每天的引用<br>Chargen 19 产生字符<br>Ftp-data 20<br>文件传送(默认数据)<br>Ftp 21 文件传送(控制端口)<br>Telnet 23 远程通信网<br>Smtp 25 简单邮件传输协议<br>Time 37 时间<br>Nicname 43 谁<br>Domain 53 域名服务器<br>Bootps 67 引导程序协议服务器<br>Bootpc 68<br>引导程序协议客户<br>Tftp 69 普通文件传输协议<br>Gopher 70 Gopher<br>Finger 79 拨号<br>WWW-http 80 WWW-Http<br>Kerberos 88<br>Kerberos<br>Pop2 109 邮政协议版本2<br>Pop3 110 邮政协议版本3<br>Sunrpc 111 Sun运端程序呼叫<br>nntp 119 网络新闻传输协议<br>Ntp 123 网络时间协议<br>Netbios-ns 137 网络基本输入输出系统命名服务<br>Netbios-ns 138<br>网络基本输入输出系统数据报服务<br>Netbios-ssn 139 网络基本输入输出系统期间服务<br>Imap2 143<br>中间邮件访问协议V2<br>Snmp 161 简单网络管理协议<br>Bgp 179 边界网关协议<br>Syslog 514 系统登陆器</p>
+<blockquote>
+<p>转载至拼客学院</p>
+</blockquote>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://only-free.github.into" class="b-link-green">only_free blog</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/01/14/duan-kou-xin-xi-zong-jie/" class="b-link-green">端口信息总结</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'e4a00225a8ce0411166b',
+        clientSecret: '1d6d28b5dffe48a2a0c13a8417df522474c99103',
+        repo: 'only-free.github.io',
+        owner: 'only-free',
+        admin: "only-free",
+        id: '2019-01-14T15-38-06',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2019/01/16/sql-zhu-ru-rao-guo-zong-jie-chi-xu-geng-xin/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="SQL注入绕过总结[持续更新]">
+                        
+                        <span class="card-title">SQL注入绕过总结[持续更新]</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">MSSQL数据库特性
+注释绕过：
+MSSQL也可以使用/**/注释
+
+
+浮点数：
+select * from user where id=1.1union select 1,&#39;2&#39;,db_name() from user
+
+</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Web安全/" class="post-category" target="_blank">
+                                    Web安全
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SQL注入/" target="_blank">
+                        <span class="chip bg-color">SQL注入</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2019/01/10/mei-zhou-tui-jian-yi-you-mo-de-fang-shi-guo-yi-sheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="[每周推荐]《以幽默的方式过一生》">
+                        
+                        <span class="card-title">[每周推荐]《以幽默的方式过一生》</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">介绍《以幽默的方式过一生》是中信出版社在2017年6月出版的图书，作者是琢磨先生
+作者介绍琢磨先生，原名郭城，财富管理专家，新锐经济学者，一位罕见的能将哲学、心理学和经济学融会贯通的人，被媒体评价为“人性的手术刀，又给人温暖向善的力量。”
+</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            only_free
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/书籍推荐/" target="_blank">
+                        <span class="chip bg-color">书籍推荐</span>
+                    </a>
+                    
+                    <a href="/tags/读后感/" target="_blank">
+                        <span class="chip bg-color">读后感</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">TOC</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            在心灵的深处，敞开的希望是自由。
+            <br> 本站总访问 <span id="busuanzi_value_site_pv"></span> 次
+        </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="col s12 m4 l4 social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</body>
+</html>

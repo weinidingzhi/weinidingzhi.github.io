@@ -1,0 +1,708 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="测试, keywords">
+    <meta name="description" content="介绍这是一个文件上传的靶场（总共19关）
+下载地址：https://github.com/c0ny1/upload-labs
+过程第一关：
+
+可以看到这里的上传的验证是javascript验证的，也就是前台认证，但是我们可以利用后台验证绕过">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>测试 | only_free blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">only_free blog</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>档案</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/mubiao" class="waves-effect waves-light">
+            
+            <i class="fa fa-volume-up"></i>
+            
+            <span>目标</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">only_free blog</div>
+        <div class="logo-desc">
+            
+            十年寒窗无人问，一举成名天下知。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                档案
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/mubiao" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-volume-up"></i>
+                
+                目标
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        测试
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+            <span class="chip bg-color"><span id="busuanzi_value_page_pv"></span> ℃</span>
+                
+                <a href="/tags/php/" target="_blank">
+                    <span class="chip bg-color">php</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-23
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>这是一个文件上传的靶场（总共19关）</p>
+<p>下载地址：<br><a href="https://github.com/c0ny1/upload-labs" target="_blank" rel="noopener">https://github.com/c0ny1/upload-labs</a></p>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p><strong>第一关：</strong></p>
+<p><img src="http://static.zybuluo.com/1kbfree/dfxzko0fx07b0zzwhs8b9rc5/image.png" alt="image.png-194.5kB"></p>
+<p>可以看到这里的上传的验证是<code>javascript</code>验证的，也就是前台认证，但是我们可以利用后台验证绕过。</p>
+<p>步骤：<br>1、上传一个<code>2.png</code><br>2、抓包将<code>2.png</code>修改为<code>2.php</code></p>
+<p><img src="http://static.zybuluo.com/1kbfree/7i5cct348yr73j5bb5lvq83o/1.png" alt="1.png-225.3kB"></p>
+<p>然后看看是否成功上传</p>
+<p><img src="http://static.zybuluo.com/1kbfree/yalbi6a2hqg1edk2av1g1irf/1.png" alt="1.png-16.1kB"></p>
+<blockquote>
+<p><code>upload</code>目录是这个靶机上传的文件的存放目录，所以上传的东西都会在这里，所以看有没有成功上传的话可以直接来这里看，或者去访问一下<code>http://xxx.xxx.xxx/upload/文件名</code>，如我刚刚上传的<code>2.php</code>就是这个链接</p>
+</blockquote>
+<p><a href="http://127.0.0.1/upload/upload/2.php" target="_blank" rel="noopener">http://127.0.0.1/upload/upload/2.php</a></p>
+<p><img src="http://static.zybuluo.com/1kbfree/angm6k565a0a80yb92s88aag/1.png" alt="1.png-51.8kB"></p>
+<p><strong>第二关：</strong></p>
+<p><img src="http://static.zybuluo.com/1kbfree/tqnbqfhzv9lwkw5czg14ww0r/1.png" alt="1.png-256kB"></p>
+<p>所谓文件类型就是上传文件的时候请求中的<code>Content-Type</code>，如下</p>
+<p><img src="http://static.zybuluo.com/1kbfree/l3to2zba83jvgqcwo4qd29m9/1.png" alt="1.png-206.5kB"></p>
+<p>这关的代码逻辑就是，如果上传的文件类型是<code>image/jpeg</code>或<code>image/png</code>或<code>image/gif</code>就可以上传。那么只要上传一个<code>php</code>文件，然后把文件类型修改为<code>image/jpeg</code>即可上传</p>
+<p><img src="http://static.zybuluo.com/1kbfree/xjeoam8717exn8g2d242f27c/1.png" alt="1.png-132.5kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/reje45f4tr5e91y6l1wnxwtk/1.png" alt="1.png-30.6kB"></p>
+<p>成功上传~</p>
+<p><strong>第三关：</strong></p>
+<blockquote>
+<p>此关就是后台禁止<code>php</code>、<code>jsp</code>、<code>asp</code>、<code>aspx</code>这四个文件上传</p>
+</blockquote>
+<p>这关的代码比较长，我就直接贴出来了~</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$is_upload</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token variable">$msg</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'submit'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token constant">UPLOAD_PATH</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$deny_ext</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'.asp'</span><span class="token punctuation">,</span><span class="token string">'.aspx'</span><span class="token punctuation">,</span><span class="token string">'.php'</span><span class="token punctuation">,</span><span class="token string">'.jsp'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$file_name</span> <span class="token operator">=</span> <span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload_file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$file_name</span> <span class="token operator">=</span> <span class="token function">deldot</span><span class="token punctuation">(</span><span class="token variable">$file_name</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//删除文件名末尾的点</span>
+        <span class="token variable">$file_ext</span> <span class="token operator">=</span> <span class="token function">strrchr</span><span class="token punctuation">(</span><span class="token variable">$file_name</span><span class="token punctuation">,</span> <span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 获取文件名的后缀（就是获取.后面的内容）</span>
+        <span class="token variable">$file_ext</span> <span class="token operator">=</span> <span class="token function">strtolower</span><span class="token punctuation">(</span><span class="token variable">$file_ext</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//转换为小写</span>
+        <span class="token variable">$file_ext</span> <span class="token operator">=</span> <span class="token function">str_ireplace</span><span class="token punctuation">(</span><span class="token string">'::$DATA'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> <span class="token variable">$file_ext</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//去除字符串::$DATA</span>
+        <span class="token variable">$file_ext</span> <span class="token operator">=</span> <span class="token function">trim</span><span class="token punctuation">(</span><span class="token variable">$file_ext</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//收尾去空</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$file_ext</span><span class="token punctuation">,</span> <span class="token variable">$deny_ext</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 如果$file_ext的值不在$deny_ext列表里，即进入条件</span>
+            <span class="token variable">$temp_file</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload_file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token variable">$img_path</span> <span class="token operator">=</span> <span class="token constant">UPLOAD_PATH</span><span class="token punctuation">.</span><span class="token string">'/'</span><span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">"YmdHis"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token number">9999</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token variable">$file_ext</span><span class="token punctuation">;</span>          
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$temp_file</span><span class="token punctuation">,</span><span class="token variable">$img_path</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 <span class="token variable">$is_upload</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token variable">$msg</span> <span class="token operator">=</span> <span class="token string">'上传出错！'</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token variable">$msg</span> <span class="token operator">=</span> <span class="token string">'不允许上传.asp,.aspx,.php,.jsp后缀文件！'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token variable">$msg</span> <span class="token operator">=</span> <span class="token constant">UPLOAD_PATH</span> <span class="token punctuation">.</span> <span class="token string">'文件夹不存在,请手工创建！'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>既然不能上传<code>php</code>，那么我们可以上传<code>.php3</code>（上传后也是当<code>php</code>解析）</p>
+<p><img src="http://static.zybuluo.com/1kbfree/gklph1wdj0vfabm9i2z7w1ba/1.png" alt="1.png-135.2kB"></p>
+<p>然后看看是否上传了</p>
+<p><img src="http://static.zybuluo.com/1kbfree/f9jc8iu3bedg49usjc4tipvg/1.png" alt="1.png-25.3kB"></p>
+<p>可以看到是上传了的，但是为什么名字会那么长呢？<br>可以看看代码中第<code>15</code>行</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$img_path</span> <span class="token operator">=</span> <span class="token constant">UPLOAD_PATH</span><span class="token punctuation">.</span><span class="token string">'/'</span><span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">"YmdHis"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token number">9999</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token variable">$file_ext</span><span class="token punctuation">;</span>
+</code></pre>
+<p>这个<code>$img_path</code>就是上传后的文件的地址，<code>UPDATE_PATH</code>就是上传目录(<code>upload</code>)，<code>data(&quot;YmdHis&quot;)</code>就是当前时间的年月日时分秒，<code>rand(1000,9999)</code>就是在<code>0000</code>到<code>9999</code>中随机抽数字，<code>$file_ext</code>就是上传的文件的后缀，所以拼接起来就是这么长的名字。</p>
+<p>那么我们上传了这个文件后，看不到他的名字，我们就可以爆破当前时间的年月日时分秒，然后后面几个随机数字爆破，这里不演示了，直接打开看看<code>php3</code>是否和<code>php</code>效果一样~</p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://only-free.github.into" class="b-link-green">only_free blog</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/12/23/ce-shi/" class="b-link-green">测试</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'e4a00225a8ce0411166b',
+        clientSecret: '1d6d28b5dffe48a2a0c13a8417df522474c99103',
+        repo: 'only-free.github.io',
+        owner: 'only-free',
+        admin: "only-free",
+        id: '2018-12-23T19-28-08',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/12/24/mei-tuan-mou-chu-shang-chuan-cun-zai-ssrf-lou-dong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="美团某处上传存在SSRF漏洞">
+                        
+                        <span class="card-title">美团某处上传存在SSRF漏洞</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">1、打开Url：http://xxx.com/profile ，然后选择一个图片上传然后抓包发现有如下请求
+
+然后我猜想这里的处理流程是这样的：
+
+上传文件后返回包返回一个Url
+然后上图那个请求把一部的Url去访问并且使其成为图片地址（应</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Web安全/" class="post-category" target="_blank">
+                                    Web安全
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/漏洞案例/" target="_blank">
+                        <span class="chip bg-color">漏洞案例</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Current</div>
+            <div class="card">
+                <a href="/2018/12/23/ce-shi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="测试">
+                        
+                        <span class="card-title">测试</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">介绍这是一个文件上传的靶场（总共19关）
+下载地址：https://github.com/c0ny1/upload-labs
+过程第一关：
+
+可以看到这里的上传的验证是javascript验证的，也就是前台认证，但是我们可以利用后台验证绕过</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            only_free
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/php/" target="_blank">
+                        <span class="chip bg-color">php</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">TOC</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            在心灵的深处，敞开的希望是自由。
+            <br> 本站总访问 <span id="busuanzi_value_site_pv"></span> 次
+        </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="col s12 m4 l4 social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</body>
+</html>

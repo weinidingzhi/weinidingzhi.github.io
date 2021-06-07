@@ -1,0 +1,733 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="对web安全的一些经验分享[url跳转篇], keywords">
+    <meta name="description" content="今年是挖洞的一年了，也对web安全产生了感情，之前盲目于一直挖洞每天技术都没什么增长，多的仅是那么一点点的经验，而且通过这次的护网行动，也看出了自己的很多不足，说白了就是很菜然后自己还没看清自己，所以接下来的日子里，自己都会尽量去接触一些自">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>对web安全的一些经验分享[url跳转篇] | only_free blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">only_free blog</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>档案</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/mubiao" class="waves-effect waves-light">
+            
+            <i class="fa fa-volume-up"></i>
+            
+            <span>目标</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">only_free blog</div>
+        <div class="logo-desc">
+            
+            十年寒窗无人问，一举成名天下知。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                档案
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/mubiao" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-volume-up"></i>
+                
+                目标
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        对web安全的一些经验分享[url跳转篇]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+            <span class="chip bg-color"><span id="busuanzi_value_page_pv"></span> ℃</span>
+                
+                <a href="/tags/经验分享/" target="_blank">
+                    <span class="chip bg-color">经验分享</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-05-23
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>今年是挖洞的一年了，也对<code>web</code>安全产生了感情，之前盲目于一直挖洞每天技术都没什么增长，多的仅是那么一点点的经验，而且通过这次的护网行动，也看出了自己的很多不足，说白了就是很菜然后自己还没看清自己，所以接下来的日子里，自己都会尽量去接触一些自己的知识盲区来扩大自己的知识面。</p>
+<blockquote>
+<p>都是自己的一些心得，并非炒作于哪儿</p>
+</blockquote>
+<h1 id="针对url跳转漏洞"><a href="#针对url跳转漏洞" class="headerlink" title="针对url跳转漏洞"></a>针对<code>url</code>跳转漏洞</h1><p>1、在登录\注册\找回密码\退出处<br>2、站内跳（如在当前页面下写一个链接，然后我们点击的话就会以这种形式<code>&lt;a href=&#39;http://www.站内.com/?tourl=写下的链接&#39;&gt;写下的链接&lt;/a&gt;</code>）还有<code>404</code>页面跳，成功执行某操作的跳<br>3、退回（比如有些页面有返回的功能，就是跳转到上一个页面，而且是根据<code>referer</code>值来跳的）</p>
+<h2 id="登录-注册-找回密码-退出"><a href="#登录-注册-找回密码-退出" class="headerlink" title="登录\注册\找回密码\退出"></a>登录\注册\找回密码\退出</h2><p>这些点我们可以考虑利用<code>fuzz</code>来对其进行探查出跳转漏洞</p>
+<p>我的<code>fuzz</code>中理解为分 2 种</p>
+<ol>
+<li>盲<code>fuzz</code>来找跳转参数</li>
+<li>针对性找跳转参数</li>
+</ol>
+<h3 id="一个栗子（登陆处fuzz）"><a href="#一个栗子（登陆处fuzz）" class="headerlink" title="一个栗子（登陆处fuzz）"></a>一个栗子（登陆处<code>fuzz</code>）</h3><p>这是一个登陆系统</p>
+<pre><code>https://www.xxx.xxx/account/signin
+</code></pre><p>那么我们可以选择第一种办法来对其进行<code>fuzz</code>来爆破出跳转参数，比如<code>url</code>、<code>go</code>、<code>re</code>等，但是这种不一定有效而且高效，所以我一般会先尝试第二种办法 <strong>针对性</strong> 找跳转参数</p>
+<p>1.审查源代码</p>
+<p>因为很多跳转参数都是在前端构造的</p>
+<p>2.查询<code>hidden</code>、<code>url</code>之类的参数（因为很多系统都会把要跳转的参数放在<code>input</code>上，并且设置其为隐藏，这样子可以不影响界面美观，然后把<code>value</code>的值作为跳转参数，登陆后读取其值来确认要跳转的地儿~）</p>
+<p><img src="http://static.zybuluo.com/1kbfree/fit4wo252iluyw5eda6d9epk/image_1dbb97vek84rs4defr1s9u1so49.png" alt="image_1dbb97vek84rs4defr1s9u1so49.png-33.3kB"></p>
+<p>那么我们就提取出这个<code>returnUrl</code>构造在<code>url</code>里</p>
+<pre><code>https://www.xxx.abc/account/signin?returnUrl=http://www.xxx.abc/123321
+</code></pre><p>这里第一步测试的时候是先填他的主域名（因为如果你一上来就填写你想跳转的<code>url</code>他可能有过滤的可能直接将其替换为空或者是主站域名），后面的<code>123321</code>是个人的日常习惯，用户定位源代码处的，这个小小小技巧也可以用在测试<code>xss</code>漏洞上，快速定位源代码的回显处</p>
+<p>3.查看效果</p>
+<p><img src="http://static.zybuluo.com/1kbfree/x3fxpxvboykl8uo5agc5l2ah/image_1dbb9i97d6g7ebn125opad1elj1g.png" alt="image_1dbb9i97d6g7ebn125opad1elj1g.png-383.2kB"></p>
+<p>4.尝试直接输入想跳转的<code>url</code>，看他是否有过滤</p>
+<p><img src="http://static.zybuluo.com/1kbfree/tqljmirxg0mdohrkavw0xk1f/image_1dbb9higs1kbteiomrh11o8158613.png" alt="image_1dbb9higs1kbteiomrh11o8158613.png-54kB"></p>
+<p>然后登陆后就成功跳转了~</p>
+<h3 id="再举一个栗子"><a href="#再举一个栗子" class="headerlink" title="再举一个栗子"></a>再举一个栗子</h3><p>一个管理员才可以登录的系统，可是俺没有账号密码如何判断他是否存在<code>url</code>跳转呢o v o~，（我爆破不出来，我捡你一个洞总可以吧╭(╯^╰)╮）</p>
+<p>如下是一个管理员的登录系统（只要不能注册的界面，俺都叫他管理员的登录系统）</p>
+<pre><code>http://xxx.admin.xxx/supplier_web/login?returnUrl=http%3A%2F%2F127.0.0.1
+</code></pre><p><img src="http://static.zybuluo.com/1kbfree/ft43hcooqtctfqkleeto2oqk/image_1dbba30kobs81ko31k6asq6avj2d.png" alt="image_1dbba30kobs81ko31k6asq6avj2d.png-198.7kB"></p>
+<p>可以看到这里不能注册，我们也不知道密码，那么怎么测试他是否可以跳转？</p>
+<p>其实很简单</p>
+<ol>
+<li>登录的时候抓包</li>
+<li>修改状态码（把<code>flase</code>改成<code>true</code>这些）</li>
+<li>然后就会跳转，因为这里的逻辑是，服务器通过判断状态码来给你构造一个登录流程，而这个登录流程支持跳转，那么就可以成功的测试出来啦~</li>
+</ol>
+<p><img src="http://static.zybuluo.com/1kbfree/hf4qi13b8p3t2wid4jintn7e/image_1dbbaa6pj16of9974ep2rnv0b2q.png" alt="image_1dbbaa6pj16of9974ep2rnv0b2q.png-53.9kB"></p>
+<blockquote>
+<p>本来服务器返回的<code>statusCode</code>是<code>500</code>的，我将其修改为<code>200</code></p>
+</blockquote>
+<p>接着就有这么一个请求过来</p>
+<p><img src="http://static.zybuluo.com/1kbfree/cyq7ca6c4xcybsi1au13myuw/image_1dbbacav275upnn1k09f4v1fse37.png" alt="image_1dbbacav275upnn1k09f4v1fse37.png-74.6kB"></p>
+<p>成功跳转~</p>
+<p>然后还有站内跳，成功提示后跳都是一样的，对参数进行<code>fuzz</code>，然后绕过，如果绕不过就砸电脑一气呵成即可；</p>
+<p>还有一个是<code>adrian</code>师傅和我分享过的，把登录处的<code>login</code>改成<code>logout</code>，然后对跳转参数进行过滤的功能就不存在了，因为开发者都不会想到在<code>logout</code>参数那里做参数过滤，然后就导致了可以直接导致<code>url</code>跳转漏洞的产生</p>
+<h2 id="退回功能的跳转导致了反射xss"><a href="#退回功能的跳转导致了反射xss" class="headerlink" title="退回功能的跳转导致了反射xss"></a>退回功能的跳转导致了反射<code>xss</code></h2><p>之前遇到过，但是忘记记录了，也是比较好玩的我大概讲解一下</p>
+<p>1、打开<code>http://www.111.com/back</code>他会跳转到<code>referer</code>的值（而且这里可以解析<code>html</code>，并且<code>referer</code>值在<code>script</code>脚本里<code>&lt;script&gt;url = &#39;referer值&#39;;window.location.href=url&lt;/script&gt;</code>）<br>2、我在自己的网站创建了一个文件(<code>only_free.php</code>)，然后其功能是跳转到<code>www.111.com/back</code>，那么我可以这样子请求</p>
+<pre><code>http://www.only_free.com/only_free.php?name=&#39;;alert(1);b=&#39;1
+</code></pre><p>最后<code>http://www.111.com/back</code>里的<code>js</code>代码就变成</p>
+<pre class=" language-javascript"><code class="language-javascript">url <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>b<span class="token operator">=</span><span class="token string">'1'</span><span class="token punctuation">;</span>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token operator">=</span>url
+</code></pre>
+<p>然后就成功弹窗了。</p>
+<blockquote>
+<p>作者qq: 1900065568</p>
+</blockquote>
+<p>有兴趣的朋友可以加我一起交流</p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://only-free.github.into" class="b-link-green">only_free blog</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/05/23/dui-web-an-quan-de-yi-xie-jing-yan-fen-xiang-url-tiao-zhuan-pian/" class="b-link-green">对web安全的一些经验分享[url跳转篇]</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'e4a00225a8ce0411166b',
+        clientSecret: '1d6d28b5dffe48a2a0c13a8417df522474c99103',
+        repo: 'only-free.github.io',
+        owner: 'only-free',
+        admin: "only-free",
+        id: '2019-05-23T01-28-51',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2019/05/29/xin-xi-shou-ji-zhi-wo-jian/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="信息收集之我见">
+                        
+                        <span class="card-title">信息收集之我见</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+来源网络，回馈网络
+
+对一个网站挖掘的深浅来说就得看你收集的如何，这说明信息收集在漏洞挖掘中是非常的重要的。
+子域名收集子域名收集是最简单的收集手法之一，有很多在线的工具可以直接套用，这里分享几个我经常用的。
+开心的时候用用这个扫描器为什</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            only_free
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/信息收集/" target="_blank">
+                        <span class="chip bg-color">信息收集</span>
+                    </a>
+                    
+                    <a href="/tags/Web安全/" target="_blank">
+                        <span class="chip bg-color">Web安全</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2019/05/23/linux-ying-ji-xiang-ying/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Linux应急响应">
+                        
+                        <span class="card-title">Linux应急响应</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+选自网络，总结与此
+
+文件夹介绍
+dev
+
+
+
+etc
+
+
+
+home
+
+
+
+lib/lib64
+
+
+
+opt
+
+
+
+root
+
+
+
+sbin
+
+
+
+tmp
+
+
+用户组概念
+所有组
+用户组
+其他组
+
+
+权限概念https://blog.c</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            only_free
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/应急响应/" target="_blank">
+                        <span class="chip bg-color">应急响应</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">TOC</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            在心灵的深处，敞开的希望是自由。
+            <br> 本站总访问 <span id="busuanzi_value_site_pv"></span> 次
+        </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="col s12 m4 l4 social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</body>
+</html>

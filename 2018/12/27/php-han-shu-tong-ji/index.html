@@ -1,0 +1,1088 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="PHP函数统计, keywords">
+    <meta name="description" content="
+不显示错误信息:error_reporting(0)
+文件包含函数:include()、include_once()、require()、require_once()
+开启session:session_start()
+是否开启了gpc功">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>PHP函数统计 | only_free blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">only_free blog</span>
+                    </a>
+                </div>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>档案</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友链</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/mubiao" class="waves-effect waves-light">
+            
+            <i class="fa fa-volume-up"></i>
+            
+            <span>目标</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">only_free blog</div>
+        <div class="logo-desc">
+            
+            十年寒窗无人问，一举成名天下知。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                档案
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友链
+            </a>
+        </li>
+        
+        <li>
+            <a href="/mubiao" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-volume-up"></i>
+                
+                目标
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        PHP函数统计
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+            <span class="chip bg-color"><span id="busuanzi_value_page_pv"></span> ℃</span>
+                
+                <a href="/tags/PHP/" target="_blank">
+                    <span class="chip bg-color">PHP</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/编程/" class="post-category" target="_blank">
+                        编程
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-27
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><img src="http://static.zybuluo.com/1kbfree/pswqhytgfahplm0g9nys439y/image_1cee71otlos41qp4gq6j651r979.png" alt="image_1cee71otlos41qp4gq6j651r979.png-218.7kB"></p>
+<p>不显示错误信息:<code>error_reporting(0)</code></p>
+<p>文件包含函数:<code>include()、include_once()、require()、require_once()</code></p>
+<p>开启session:<code>session_start()</code></p>
+<p>是否开启了gpc功能:<code>if( !get_magic_quotes_gpc() ){}</code></p>
+<p>过滤函数:<code>addslashes()</code>入敏感的内容会被转义(\)</p>
+<hr>
+<p><strong>strtoupper()用法：</strong></p>
+<blockquote>
+<p>将内容转成大写</p>
+</blockquote>
+<hr>
+<p><strong>等号用处分类：</strong></p>
+<pre><code>1、=：赋值，在逻辑运算时也有效；
+
+2、==：等于运算，但是不比较值的类型；
+
+3、===：完全等于运算，不仅比较值，而且还比较值的类型，只有两者一致才为真。
+</code></pre><hr>
+<p><strong>strpos()用法：</strong></p>
+<p><img src="http://static.zybuluo.com/1kbfree/v7u0u2vt3mstermy54yh51h8/image_1cml2asu81dbc113tjcv1u641lvv9.png" alt="image_1cml2asu81dbc113tjcv1u641lvv9.png-23.2kB"></p>
+<hr>
+<p><strong>call_user_func()用法：</strong></p>
+<p><img src="http://static.zybuluo.com/1kbfree/kboyep98ziafatwl06orc0ho/image_1cmmfs7ek14eupqrspq1ge9mghp.png" alt="image_1cmmfs7ek14eupqrspq1ge9mghp.png-9.4kB"></p>
+<p>如果我们传递<code>?a=assert&amp;b=phpinfo()</code>就会执行<code>phpinfo</code>函数，如图</p>
+<p><img src="http://static.zybuluo.com/1kbfree/o4n7cdfbnbrhxi992atpl4ik/image_1cmmft0fpri5gt1cs4jaj1uel16.png" alt="image_1cmmft0fpri5gt1cs4jaj1uel16.png-108.3kB"></p>
+<hr>
+<p><strong>readfile()用法：</strong></p>
+<blockquote>
+<p>定义和用法</p>
+</blockquote>
+<p><code>readfile()</code> 函数输出一个文件。<br>该函数读入一个文件并写入到输出缓冲。<br>若成功，则返回从文件中读入的内容与字节数。若失败，则返回 false。您可以通过 <code>@readfile()</code> 形式调用该函数，来隐藏错误信息。</p>
+<p><code>readfile( filename,include_path,context )</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">filename</td>
+<td style="text-align:center">必需。规定要读取的文件。</td>
+</tr>
+<tr>
+<td style="text-align:center">include_path</td>
+<td style="text-align:center">可选。如果也想在include_path中搜索文件，可以使用该参数并将其设为 true。</td>
+</tr>
+<tr>
+<td style="text-align:center">context</td>
+<td style="text-align:center">可选。规定文件句柄的环境。Context 是可以修改流的行为的一套选项。</td>
+</tr>
+</tbody>
+</table>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">echo</span> <span class="token function">readfile</span><span class="token punctuation">(</span> <span class="token string">'cai_team.txt'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="http://static.zybuluo.com/1kbfree/v6c48k8uhhan8wid021wdjdv/image_1cf5k429h93b1t2dls83t6db919.png" alt="image_1cf5k429h93b1t2dls83t6db919.png-42.2kB"></p>
+<hr>
+<p><strong>define用法:</strong></p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token function">define</span><span class="token punctuation">(</span><span class="token string">"GREETING"</span><span class="token punctuation">,</span><span class="token string">"Hello world!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">var_dump</span><span class="token punctuation">(</span> <span class="token function">defined</span><span class="token punctuation">(</span><span class="token string">"GREETING"</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//如果存在返回True</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span> <span class="token function">defined</span><span class="token punctuation">(</span><span class="token string">"only_free"</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<p>输出：</p>
+<p><img src="http://static.zybuluo.com/1kbfree/h6f8bb30aqob5krl7kutm4l5/image_1cjgnhepi1qip65erps107v134p9.png" alt="image_1cjgnhepi1qip65erps107v134p9.png-44.4kB"></p>
+<hr>
+<p><strong>chdir用法:</strong></p>
+<p><img src="http://static.zybuluo.com/1kbfree/z9hjzdocsf3qe8tbas1qc0hf/image_1cdp74hqt1rgd9ln1rgv736man9.png" alt="image_1cdp74hqt1rgd9ln1rgv736man9.png-28.3kB"></p>
+<hr>
+<p><strong>mkdir用法:</strong></p>
+<pre><code>&lt;?php
+    mkdir(&#39;1.iamfree&#39;) //会在当前目录下创建一个1.iamfree文件夹
+?&gt;
+</code></pre><hr>
+<p><strong>const用法：</strong></p>
+<pre><code>&lt;?php
+    const name=&#39;iamfree&#39;;
+    echo name;
+
+/*
+输出:iamfree
+*/
+?&gt;
+
+</code></pre><hr>
+<p><strong>htmlspecialchars()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/q8yrwithqaykeziaxj3w50aq/image_1cavlibuatcrb7u1qbv6ni1p9.png" alt="image_1cavlibuatcrb7u1qbv6ni1p9.png-17.3kB"></p>
+<h3 id="执行转换"><a href="#执行转换" class="headerlink" title="执行转换:"></a>执行转换:</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">字符</th>
+<th style="text-align:left">替换后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&amp; (&amp; 符号)</td>
+<td style="text-align:left"><code>&amp;amp;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">“ (双引号)</td>
+<td style="text-align:left"><code>&amp;quot;</code>，除非设置了 ENT_NOQUOTES</td>
+</tr>
+<tr>
+<td style="text-align:left">‘ (单引号)</td>
+<td style="text-align:left">设置了 ENT_QUOTES 后， &#039; (如果是 ENT_HTML401) ，或者 &apos; (如果是 ENT_XML1、ENT_XHTML 或 ENT_HTML5)。</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; (小于)</td>
+<td style="text-align:left"><code>&amp;lt</code></td>
+</tr>
+<tr>
+<td style="text-align:left">> (大于)</td>
+<td style="text-align:left"><code>&amp;gt</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>extract()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/bbsz4gdm60bwu3xpa3bb09k2/image_1cb2cblp6lpb19ku1ouu4d81h701t.png" alt="image_1cb2cblp6lpb19ku1ouu4d81h701t.png-32.2kB"></p>
+<hr>
+<p><strong>parse_str()：</strong></p>
+<pre><code> &lt;?php
+
+    parse_str(&#39;name=iamfree&#39;); //把name变成变量名，iamfree变成变量值
+    echo $name;//输出iamfree
+
+?&gt;
+</code></pre><hr>
+<p><strong>import_request_variables():</strong></p>
+<p><em>此函数把GET、POST、COOKIE的参数注册为变量，一般不建议开启</em></p>
+<blockquote>
+<p>注意,只在 <code>PHP4.1</code>到<code>PHP5.4</code>之间可用</p>
+</blockquote>
+<pre><code>&lt;?php
+
+    $name = &#39;whoami&#39;;
+    import_request_variables(&#39;GP&#39;); //G表示GET、P表示POST如果有C表示COOKIE；这里的GP表示注册GET和POST请求的参数为变量
+    echo $name;
+
+?&gt;
+</code></pre><p><strong>效果：</strong></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://static.zybuluo.com/1kbfree/n09o5bhlvrv1my1f2zqxgf4q/image_1cckvkb6b186c6g11p8ojf4lbd9.png" alt="image_1cckvkb6b186c6g11p8ojf4lbd9.png-54.1kB"></h2><p><strong>array_key_exists()：</strong></p>
+<pre><code>array_key_exists ( $key , $array )
+</code></pre><blockquote>
+<p>数组里有键 key 时，array_key_exists() 返回 TRUE。 key 可以是任何能作为数组索引的值。</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/1kbfree/wkcc7p351cowwqz1k9hjbwy3/image_1cba1lh3okkkg0n1qkp1uuc104v9.png" alt="image_1cba1lh3okkkg0n1qkp1uuc104v9.png-16.1kB"></p>
+<hr>
+<p><strong>str_ireplace过滤sql语句：</strong><br><img src="http://static.zybuluo.com/1kbfree/hmfq9fei2t8khzcusyszh8i3/str_ireplace.png" alt="str_ireplace.png-816.7kB"><br><strong>此函数用法：</strong><br><img src="http://static.zybuluo.com/1kbfree/7yuotvm35lw7w6zzdr1q414y/str_ireplace%E7%94%A8%E6%B3%95.png" alt="str_ireplace用法.png-6.4kB"><br><em>将 whoami? 中的 whoami 被 iamfree 替换，也就是说把whoami?里的whoami替换成iamfree所以结果就是iamfree?</em></p>
+<p><strong>这里其实是可以绕过的，比如：</strong><br><img src="http://static.zybuluo.com/1kbfree/1vaj8guxs3swd43zh3uvkqbb/image_1caugtd8fj54ke9tf112cr1qbl4h.png" alt="image_1caugtd8fj54ke9tf112cr1qbl4h.png-150.2kB"></p>
+<hr>
+<p>运算符:<br>名称  |  关系 |    示例     |        结果<br>:-:|:-:|:-:<br>and  |  与 |      <code>$x and $y</code>    |如果 <code>$x</code> 和 <code>$y</code> 都为 true，则返回 true。    |<br>or  |     或     | <code>$x or $y</code>   |    如果 <code>$x</code> 和 <code>$y</code> 至少有一个为 true，则返回 true。<br>xor |    异或  |  <code>$x</code> xor <code>$y</code>  |   如果 <code>$x</code> 和 <code>$y</code> 有且仅有一个为 true，则返回 true。<br>&amp;&amp;  |  与    |    <code>$x</code> &amp;&amp; <code>$y</code>   | 如果 <code>$x</code> 和 <code>$y</code> 都为 true，则返回 true。<br>||    |    或  |      <code>$x</code> ||<code>$y</code> |       如果 <code>$x</code> 和 <code>$y</code> 至少有一个为 true，则返回 true。<br>! |    非    |     <code>!$x</code>|              如果 $x 不为 true，则返回 true。</p>
+<hr>
+<p><strong>变量覆盖:</strong><br><img src="http://static.zybuluo.com/1kbfree/p5uq0jbmj08gy7607w66rm51/image_1cbrhvola1igmjhm15mc1rsqed816.png" alt="image_1cbrhvola1igmjhm15mc1rsqed816.png-33.4kB"><br><img src="http://static.zybuluo.com/1kbfree/wfifd51c43j7d5zdxsg08bd1/image_1cbri0lsa1tuc1erh1d5q1drsdre1j.png" alt="image_1cbri0lsa1tuc1erh1d5q1drsdre1j.png-70.7kB"></p>
+<p><strong>难一点的：</strong></p>
+<pre><code>&lt;?php 
+    foreach (array( &#39;_GET&#39;,&#39;_POST&#39; ) as $key =&gt; $value) {
+        foreach ($$value as $_key =&gt; $_value){
+            echo $_key.&#39;:&#39;.$_value;
+            echo &quot;&lt;br &gt;&quot;;
+        }
+    }
+?&gt;
+</code></pre><p><strong>执行后的结果：</strong><br><img src="http://static.zybuluo.com/1kbfree/n7f97a459waufv27gbwrmsv0/image_1ccl9ivq22vk1pdat631f7oq8s1g.png" alt="image_1ccl9ivq22vk1pdat631f7oq8s1g.png-32.5kB"></p>
+<hr>
+<p><strong>define()用法:</strong></p>
+<pre><code>&lt;?php 
+    define(&#39;t&#39;,time()); //把time()的返回值定义为常量(t)    
+    echo t;
+?&gt;
+</code></pre><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="http://static.zybuluo.com/1kbfree/3l030blxz655udwgyqy75sei/image_1ccl95vnr10rv1el118e91bdl155m13.png" alt="image_1ccl95vnr10rv1el118e91bdl155m13.png-73.9kB"></h2><p><strong>三元表达式:</strong></p>
+<pre><code>&lt;?php
+
+    $name = !empty($_GET[&#39;name&#39;]) ? $_GET[&#39;name&#39;] : &#39;此人无名&#39;; //表示如果$_GET[&#39;name&#39;]不为空的话就返回$_GET[&#39;name&#39;]如果为空就返回 此人无名。
+    echo $name;
+
+?&gt;
+</code></pre><p><strong>还可以有一种判断方法：</strong></p>
+<pre><code>&lt;?php 
+    echo 1;
+    isset($_GET[&#39;name&#39;]) &amp;&amp; exit(&#39;exit&#39;); //如果isset($_GET[&#39;name&#39;])为真也就是name这个参数存在的时候，会执行exit(&#39;exit&#39;)，相反，不存在的时候不会执行exit(&#39;exit&#39;)   
+    echo 2;
+?&gt;
+</code></pre><p><strong>name参数不存在时：</strong><br><img src="http://static.zybuluo.com/1kbfree/0oayqf6kulmddjdriml2wcsj/image_1ccl8dgoon1s7l1i4d2bh2449.png" alt="image_1ccl8dgoon1s7l1i4d2bh2449.png-46.7kB"></p>
+<p><strong>name参数存在时：</strong><br><img src="http://static.zybuluo.com/1kbfree/viyokepu5q9wjmjpbfil69fi/image_1ccl8eog3koq1oa41g4210elf3sm.png" alt="image_1ccl8eog3koq1oa41g4210elf3sm.png-68.8kB"></p>
+<hr>
+<p><strong>nl2br()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/ikn2i2mm0kgfze57ygqzlc1g/image_1cbrhga1o1i0t1vnl2611jojbkip.png" alt="image_1cbrhga1o1i0t1vnl2611jojbkip.png-22.5kB"></p>
+<hr>
+<p><strong>eval()函数:</strong></p>
+<pre><code>代码
+&lt;?php
+$string = &#39;cup&#39;;
+$name = &#39;coffee&#39;;
+$str = &#39;This is a $string with my $name in it.&#39;;
+echo $str. &quot;\n&quot;;
+eval(&quot;\$str = \&quot;$str\&quot;;&quot;);
+echo $str. &quot;\n&quot;;
+?&gt; 
+</code></pre><p><strong>输出：</strong><br><code>This is a $string with my $name in it.</code><br><code>This is a cup with my coffee in it.</code></p>
+<hr>
+<p><strong>explode()函数:</strong></p>
+<blockquote>
+<p>也就是拆分</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/1kbfree/tg27cykixmiyflsw0dofm2bw/image_1ca61lt671266hda1loq1om3gr411.png" alt="image_1ca61lt671266hda1loq1om3gr411.png-28.6kB"></p>
+<hr>
+<p><strong>copy()函数:</strong></p>
+<p><code>copy(source,destination)</code><br>参数 |    描述<br>:-:  | :-:<br>source | 必需。规定要复制的文件。<br>destination | 必需。规定复制文件的目的地。</p>
+<p><strong>将文件从 source 拷贝到 destination。如果成功则返回 TRUE，否则返回 FALSE。</strong></p>
+<hr>
+<p><strong>trim()函数:</strong><br>移除字符串两侧的空格等特殊字符<br><img src="http://static.zybuluo.com/1kbfree/kn3q9kwiadvmp2238ix16c7r/image_1capbh1qhm8vhmp1nu212q7100hm.png" alt="移除字符串两侧的空格等特殊字符.png-14.7kB"></p>
+<hr>
+<p><strong>strcasecmp()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/iaqdvoetw2l610xgofrbqdje/image_1calh2fsf1pjn50b1nh11h0v1v3d9.png" alt="image_1calh2fsf1pjn50b1nh11h0v1v3d9.png-39.5kB"></p>
+<hr>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式:"></a>正则表达式:</h1><p><strong>preg_match()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/xo7lxkjibn4xcrha7t4basxn/image_1calhpof417poa9m1982vhh4n113.png" alt="preg_match函数的参数介绍"></p>
+<p><strong>匹配一下<code>i</code>：</strong><br><img src="http://static.zybuluo.com/1kbfree/4d3lofhh58j9i4d4hkm12gsj/image_1cb2e316g1k9mdevmb11v3v15sm2a.png" alt="image_1cb2e316g1k9mdevmb11v3v15sm2a.png-16.9kB"></p>
+<p>这里的<code>//</code>是定界符 ，之需要二处字符一样就可以，比如<code>== -- ?? 等等</code> 但是有些不能做定位符 比如a到z、A到Z、0到9、空格、<code>\</code></p>
+<p><strong>匹配全部英文字母(包括大写)：</strong><br><img src="http://static.zybuluo.com/1kbfree/3n619fqv4ix1af43vwtkffu7/image_1cb2e8ben2u160k1kuktn1n792n.png" alt="image_1cb2e8ben2u160k1kuktn1n792n.png-33kB"></p>
+<p><strong>替换匹配到的内容:</strong><br><img src="http://static.zybuluo.com/1kbfree/9r393wz9lhgio1y8dmamo7pk/image_1cb2ej8kv1l2loph4hd2480l3h.png" alt="image_1cb2ej8kv1l2loph4hd2480l3h.png-20kB"></p>
+<hr>
+<p><strong>define()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/0sm19cmcccdtny7e32qjs4ud/image_1cau24b5jgimn6h6ge7sd8u19.png" alt="image_1cau24b5jgimn6h6ge7sd8u19.png-19.7kB"></p>
+<pre><code>define(name,value,case_insensitive)
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">描叙</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">必需。规定常量的名称。</td>
+</tr>
+<tr>
+<td style="text-align:center">value</td>
+<td style="text-align:center">必需。规定常量的值。</td>
+</tr>
+<tr>
+<td style="text-align:center">case_insensitive</td>
+<td style="text-align:center">可选。规定常量的名称是否对大小写敏感。</td>
+</tr>
+</tbody>
+</table>
+<p><em>若设置为 true，则对变量名大小写不敏感。默认是 false（大小写敏感）。</em></p>
+<hr>
+<p><strong>dirname()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/mxnhnvrlstywezjh66otbbck/image_1cau2i80e2ag1rp5a721pak1ku4m.png" alt="image_1cau2i80e2ag1rp5a721pak1ku4m.png-39.5kB"><br><code>dirname(path)</code><br>参数|描述<br>:–:|:–:<br>path|必需。规定要检查的路径。</p>
+<p><em>该函数返回去掉文件名后的目录名</em></p>
+<hr>
+<p><strong>iconv()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/o51s3916gtn2hfrfzr1xn3yy/image_1cau44qdgb61h0u119k11ok1rda1g.png" alt="image_1cau44qdgb61h0u119k11ok1rda1g.png-60.5kB"><br><code>iconv ( in_charset , out_charset , str )</code><br>将字符串 str 从 in_charset 转换编码到 out_charset。 </p>
+<p><strong>intval()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/odelzzq42smp1ujet5mx99os/image_1calj80va17dali6obj1bsj1371n.png" alt="image_1calj80va17dali6obj1bsj1371n.png-70.2kB"><br><em>还可以当防止SQL注入:</em><br><img src="http://static.zybuluo.com/1kbfree/me7ctcznhnh9vjhsgj1sx80v/image_1cartbh4v1thh1egn1iga1fcinu1g.png" alt="image_1cartbh4v1thh1egn1iga1fcinu1g.png-14.6kB"></p>
+<hr>
+<p><strong>reset()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/xefi1xpy95wf4er90jqv8nci/image_1camn387gtjs1pj6imq18fmoap.png" alt="image_1camn387gtjs1pj6imq18fmoap.png-57.2kB"></p>
+<hr>
+<p><strong>$$变量覆盖:</strong><br><img src="http://static.zybuluo.com/1kbfree/iu6dbthijovu3ek690s9ml8k/image_1campm57rug6ul5e76u4h1ij216.png" alt="image_1campm57rug6ul5e76u4h1ij216.png-36.5kB"></p>
+<p><strong>还有一个很有趣的：</strong></p>
+<pre><code>&lt;?php
+
+    $g = &#39;_GET&#39;;
+    $g = $$g; //这个时候$$g的第二个$与$g的值拼接了变成了$_GET，第一个$变成了$g，所以$g=$_GET
+    echo $g[&#39;name&#39;];
+
+?&gt;
+</code></pre><p><img src="http://static.zybuluo.com/1kbfree/b9lobeeywliqdiruv21fk0x9/image_1cckvtnv0fkgv9volmk581ue5m.png" alt="image_1cckvtnv0fkgv9volmk581ue5m.png-62.9kB"></p>
+<hr>
+<p><strong>isset()函数:检测变量是否已设置并且非 NULL</strong><br><strong>unset()函数:释放给定的变量</strong></p>
+<hr>
+<p><strong>parse_ini_file()  解析一个配置文件。</strong></p>
+<pre><code>array parse_ini_file ( string $filename [, bool $process_sections = false [, int $scanner_mode = INI_SCANNER_NORMAL ]] )
+</code></pre><p>载入一个由 filename 指定的 ini 文件，并将其中的设置作为一个联合数组返回。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">filename</td>
+<td style="text-align:center">要解析的 ini 文件的文件名。</td>
+</tr>
+<tr>
+<td style="text-align:center">process_sections</td>
+<td style="text-align:center">如果将最后的 process_sections 参数设为 TRUE，将得到一个多维数组，包括了配置文件中每一节的名称和设置。process_sections 的默认值是 FALSE。</td>
+</tr>
+<tr>
+<td style="text-align:center">scanner_mode</td>
+<td style="text-align:center">Can either be INI_SCANNER_NORMAL (default) or INI_SCANNER_RAW. If INI_SCANNER_RAW is supplied, then option values will not be parsed.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>返回值： 成功时以关联数组 array 返回设置，失败时返回 FALSE。</p>
+</blockquote>
+<hr>
+<p><strong>urldecode()函数，可能会造成urldecode二次注入：</strong><br><img src="http://static.zybuluo.com/1kbfree/vckacpis6uv1zy6cq7x6z4ef/image_1cao633k6105ecv99s4pre14129.png" alt="image_1cao633k6105ecv99s4pre14129.png-32.1kB"></p>
+<hr>
+<p><strong>$_FILES用法:</strong><br><img src="http://static.zybuluo.com/1kbfree/5xn30q6ctgadfuuk8s2jhrda/image_1cb241vvp1ls511el1umg44v1oqi9.png" alt="image_1cb241vvp1ls511el1umg44v1oqi9.png-42.7kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/p6mqk381schtf7hjo84aimmx/image_1cb242979174ttbvod71k31e97m.png" alt="image_1cb242979174ttbvod71k31e97m.png-43.3kB"></p>
+<p><img src="http://static.zybuluo.com/1kbfree/4zvsf8i84xbn8gqb9v51rzj4/image_1cb2494dpm70155kdea1i1217um13.png" alt="image_1cb2494dpm70155kdea1i1217um13.png-117.7kB"></p>
+<hr>
+<p><strong>is_numeric()函数：</strong></p>
+<blockquote>
+<p>判断是否为数字，是返回1，不是返回空</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/1kbfree/a425da6hg4dejq3orru2x19m/image_1cao6u6q0cd76121e244i910gm.png" alt="image_1cao6u6q0cd76121e244i910gm.png-24.7kB"></p>
+<hr>
+<p><strong>dvwa的sql注入的impossible等级源码(dvwa的impossible不存在sql注入)：</strong><br><img src="http://static.zybuluo.com/1kbfree/oz8rvt3lijvznmq5htw60vwg/image_1cao7j7051cek133f1oku1ek51vc13.png" alt="image_1cao7j7051cek133f1oku1ek51vc13.png-47.7kB"><br><em>当然  我看不懂这几行:</em></p>
+<pre><code>$data = $db-&gt;prepare( &#39;SELECT first_name, last_name FROM users WHERE user_id = (:id) LIMIT 1;&#39; );
+$data-&gt;bindParam( &#39;:id&#39;, $id, PDO::PARAM_INT );
+</code></pre><hr>
+<p><strong>substr()函数:</strong></p>
+<pre><code>&lt;?php
+$rest = substr(&quot;abcdef&quot;, -1);    // 返回 &quot;f&quot;
+$rest = substr(&quot;abcdef&quot;, -2);    // 返回 &quot;ef&quot;
+$rest = substr(&quot;abcdef&quot;, -3, 1); // 返回 &quot;d&quot;
+
+$rest = substr(&quot;abcdef&quot;, 0, -1);  // 返回 &quot;abcde&quot;
+$rest = substr(&quot;abcdef&quot;, 2, -1);  // 返回 &quot;cde&quot;
+$rest = substr(&quot;abcdef&quot;, 4, -4);  // 返回 &quot;&quot;
+$rest = substr(&quot;abcdef&quot;, -3, -1); // 返回 &quot;de&quot;
+?&gt;
+
+</code></pre><hr>
+<p><strong>strrpos()函数:</strong></p>
+<pre><code>&lt;?php
+$foo = &quot;0123456789a123456789b123456789c&quot;;
+
+var_dump(strrpos($foo, &#39;7&#39;, -5));  // 从尾部第 5 个位置开始查找
+                                   // 结果: int(17)
+
+var_dump(strrpos($foo, &#39;7&#39;, 20));  // 从第 20 个位置开始查找
+                                   // 结果: int(27)
+
+var_dump(strrpos($foo, &#39;7&#39;, 28));  // 结果: bool(false)
+?&gt;
+</code></pre><hr>
+<p><strong>extract()函数：</strong><br><img src="http://static.zybuluo.com/1kbfree/w6zu2eq6hu95plscwo6eipwo/image_1capb8b1l16th19ectna124m6sp9.png" alt="image_1capb8b1l16th19ectna124m6sp9.png-46.6kB"></p>
+<hr>
+<p><strong>常见语法：</strong></p>
+<pre><code>if(empty($a)) $a = &#39;hello world&#39;; //如果$a为空，那么它的值为hello world
+</code></pre><pre><code>$s = &#39;sys&#39;.&#39;tem&#39;;
+$s(&#39;whoami&#39;); //返回desktop-a0iqkh2\iamfree
+/*这里就是执行了whoami的命令*/
+</code></pre><hr>
+<p><strong>匿名函数：</strong></p>
+<pre><code>$C_F = create_function(&#39;$name&#39;,&#39;return $name;&#39;); //$name的位置是传递什么参数，第二个参数是函数里执行什么代码
+echo $C_F(&#39;iamfree&#39;); //输出iamfree
+</code></pre><hr>
+<p><strong>回调函数：</strong></p>
+<pre><code>function Func($name){
+    echo &quot;hello $name&quot;;
+}
+call_user_func(&#39;Func&#39;,&#39;iamfree&#39;); 
+/*输出:hello iamfree*/
+</code></pre><pre><code>call_user_func(&#39;system&#39;,&#39;whoami&#39;);
+/*输出：desktop-a0iqkh2\iamfree*/
+</code></pre><hr>
+<p><strong>命令执行函数：</strong></p>
+<ul>
+<li>exec() — 执行一个外部程序</li>
+<li>passthru() — 执行外部程序并且显示原始输出</li>
+<li>proc_open() — 执行一个命令，并且打开用来输入/输出的文件指针。</li>
+<li>shell_exec() &amp; <code></code> — 通过 shell 环境执行命令，并且将完整的输出以字符串的方式返回。</li>
+<li>system() — 执行外部程序，并且显示输出</li>
+<li>popen() — 通过 popen() 的参数传递一条命令，并对 popen() 所打开的文件进行执行。</li>
+</ul>
+<p><img src="http://static.zybuluo.com/1kbfree/a7jyan6kwd7dig28zvx5zzmc/image_1carr8bt51nu8inj1ovq1b3nai79.png" alt="image_1carr8bt51nu8inj1ovq1b3nai79.png-42.6kB"></p>
+<hr>
+<p><strong>文件操作函数：</strong></p>
+<ul>
+<li>copy — 拷贝文件</li>
+<li>file_get_contents — 将整个文件读入一个字符串</li>
+<li>file_put_contents — 将一个字符串写入文件</li>
+<li>file — 把整个文件读入一个数组中</li>
+<li>fopen — 打开文件或者 URL</li>
+<li>move_uploaded_file — 将上传的文件移动到新位置</li>
+<li>readfile — 输出文件</li>
+<li>rename — 重命名一个文件或目录</li>
+<li>rmdir — 删除目录</li>
+<li>unlink &amp; delete — 删除文件</li>
+</ul>
+<blockquote>
+<p>任意文件读取、写入、删除往往是上面几个函数受到了控制（当然还有其他的函数）。<br>不同的函数在不同的场景有不同的作用和不同的利用手法。<br>读取：可以读取配置等文件，拿到key<br>写入：可以写入shell代码相关的内容<br>删除：可以删除.lock文件而可以重新安装覆盖</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/1kbfree/ivg4xj91uyloaum2nyx2fsj2/image_1carrl00k1f4isqn1kthuu9o4rm.png" alt="image_1carrl00k1f4isqn1kthuu9o4rm.png-389.2kB"></p>
+<hr>
+<h2 id="特殊函数"><a href="#特殊函数" class="headerlink" title="特殊函数"></a>特殊函数</h2><h3 id="信息泄漏"><a href="#信息泄漏" class="headerlink" title="信息泄漏"></a>信息泄漏</h3><p><code>bool phpinfo ([ int $what = INFO_ALL ] )</code><br>输出 PHP 当前状态的大量信息，包含了PHP编译选项、启用的扩展、PHP版本、服务器信息和环境变量（如果编译为一个模块的话）、PHP环境变量、操作系统版本信息、path变量、配置选项的本地值和主值、HTTP头和PHP授权信息(License)。</p>
+<h3 id="软连接-读取文件内容"><a href="#软连接-读取文件内容" class="headerlink" title="软连接-读取文件内容"></a>软连接-读取文件内容</h3><p><code>bool symlink ( string $target , string $link )</code><br><code>symlink()</code> 对于已有的 target 建立一个名为 link 的符号连接。<br><code>string readlink ( string $path )</code><br><code>readlink()</code> 和同名的 C 函数做同样的事，返回符号连接的内容。</p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p><code>string getenv ( string $varname )</code><br><strong>获取一个环境变量的值。</strong><br><code>bool putenv ( string $setting )</code><br><strong>添加 setting 到服务器环境变量。 环境变量仅存活于当前请求期间。</strong> 在请求结束时环境会恢复到初始状态。</p>
+<h3 id="加载扩展"><a href="#加载扩展" class="headerlink" title="加载扩展"></a>加载扩展</h3><p><code>bool dl ( string $library )</code><br>载入指定参数 library 的 PHP 扩展。</p>
+<p><strong>配置相关</strong><br><code>string ini_get ( string $varname )</code></p>
+<p><strong>成功时返回配置选项的值。</strong></p>
+<pre><code>string ini_set ( string $varname , string $newvalue )
+string ini_alter ( string $varname , string $newvalue )
+</code></pre><p>设置指定配置选项的值。这个选项会在脚本运行时保持新的值，并在脚本结束时恢复。<br><code>void ini_restore ( string $varname )</code><br>恢复指定的配置选项到它的原始值。</p>
+<p><strong>数字判断</strong><br><code>bool is_numeric ( mixed $var )</code><br>如果 var 是数字和数字字符串则返回 TRUE，否则返回 FALSE。<br>仅用is_numeric判断而不用intval转换就有可能插入16进制的字符串到数据库，进而可能导致sql二次注入。</p>
+<p><strong>数组相关</strong><br><code>bool in_array ( mixed $needle , array $haystack [, bool $strict = FALSE ] )</code><br>在 haystack 中搜索 needle，如果没有设置 strict 则使用宽松的比较。<br>该函数有一个特性，比较之前会进行自动类型转换。<br><code>in_array($str,$arr)判断$str是否在$arr数组里</code><br><img src="http://static.zybuluo.com/1kbfree/jx7080p95vigv0hnpfkgnu8u/image_1cartm29n1seoieq1o52b2qbn72d.png" alt="image_1cartm29n1seoieq1o52b2qbn72d.png-28.9kB"></p>
+<h3 id="变量覆盖"><a href="#变量覆盖" class="headerlink" title="变量覆盖"></a>变量覆盖</h3><p><strong>如果 str 是 URL 传递入的查询字符串（query string），则将它解析为变量并设置到当前作用域：</strong><br><code>void parse_str ( string $str [, array &amp;$arr ] )</code><br><strong>本函数用来将变量从数组中导入到当前的符号表中。检查每个键名看是否可以作为一个合法的变量名，同时也检查和符号表中已有的变量名的冲突：</strong><br><code>int extract ( array &amp;$var_array [, int $extract_type = EXTR_OVERWRITE [, string $prefix = NULL ]] )</code></p>
+<p><code>bool mb_parse_str ( string $encoded_string [, array &amp;$result ] )</code><br>解析 <code>GET/POST/COOKIE</code> 数据并设置全局变量。 由于 PHP 不提供原始 POST/COOKIE 数据，目前它仅能够<br>用于 GET 数据。 它解析了 URL 编码过的数据，检测其编码，并转换编码为内部编码，然后设置其值为 array<br>的 result 或者全局变量。<br><code>bool import_request_variables ( string $types [, string $prefix ] )</code><br>将 <code>GET／POST／Cookie</code> 变量导入到全局作用域中。如果你禁止了 <code>register_globals</code>，但又想用到一些全局变<br>量，那么此函数就很有用。</p>
+<pre><code>&lt;?php
+$str = &quot;first=value&amp;arr[]=foo+bar&amp;arr[]=baz&quot;;
+
+// 推荐用法
+parse_str($str, $output);
+echo $output[&#39;first&#39;];  // value
+echo $output[&#39;arr&#39;][0]; // foo bar
+echo $output[&#39;arr&#39;][47]; // baz
+
+// 不建议这么用
+parse_str($str);
+echo $first;  // value
+echo $arr[0]; // foo bar
+echo $arr[1]; // baz
+?&gt;
+</code></pre><h3 id="列目录"><a href="#列目录" class="headerlink" title="列目录"></a>列目录</h3><p><code>array glob ( string $pattern [, int $flags = 0 ] )</code><br>glob() 函数依照 libc glob() 函数使用的规则寻找所有与 pattern 匹配的文件路径，类似于一般shell所用的规则一样。不进行缩写扩展或参数替代。<br><img src="http://static.zybuluo.com/1kbfree/osbwswf3zlroqoo14rq9jjfj/image_1caru9aiu1a5v1qr2p7m1pjlpjq2q.png" alt="image_1caru9aiu1a5v1qr2p7m1pjlpjq2q.png-46.9kB"><br><code>var_dump(glob(&#39;c*.php&#39;)); //列出c开头的PHP文件</code></p>
+<h3 id="无参数获取信息"><a href="#无参数获取信息" class="headerlink" title="无参数获取信息"></a>无参数获取信息</h3><p><strong>返回一个包含所有已定义变量列表的多维数组，这些变量包括环境变量、服务器变量和用户定义的变量:</strong><br><code>array get_defined_vars ( void )</code><br><strong>返回当前所有已定义的常量名和值。 这包含 define() 函数所创建的，也包含了所有扩展所创建的:</strong><br><code>array get_defined_constants ([ bool $categorize = false ] )</code><br><strong>返回一个包含所有已定义函数列表的多维数组:</strong><br><code>array get_defined_functions ( void )</code><br><strong>返回所有被 include、 include_once、 require 和 require_once:</strong><br><code>array get_included_files ( void )</code></p>
+<p><img src="http://static.zybuluo.com/1kbfree/v8vegj7d7ahhxafqer3gdx7s/image_1carv1gbf9am1c0rnic1gs9156f37.png" alt="image_1carv1gbf9am1c0rnic1gs9156f37.png-218.1kB"></p>
+<hr>
+<p><strong>rand()函数:</strong><br><img src="http://static.zybuluo.com/1kbfree/uv0q2objv84c5sm4z37sk41e/image_1carsup0fqrg1uipj1q1oeb1okv13.png" alt="image_1carsup0fqrg1uipj1q1oeb1okv13.png-29.6kB"></p>
+<hr>
+<p><strong>$_REQUEST用法：</strong><br><img src="http://static.zybuluo.com/1kbfree/oce7sp8x0ykgb7ju4x6shxhl/image_1cb26fq2i1upk16alpd18eb8pg1g.png" alt="image_1cb26fq2i1upk16alpd18eb8pg1g.png-30kB"></p>
+<hr>
+<p><strong>file_exists()函数：</strong><br>检查文件或目录是否存在<br><img src="http://static.zybuluo.com/1kbfree/5g83d66qgky6x3w7ws87h8oh/image_1cauetnlg17n874k1qqf11suk537.png" alt="image_1cauetnlg17n874k1qqf11suk537.png-34.8kB"></p>
+<hr>
+<p><strong>exit用法：</strong><br><img src="http://static.zybuluo.com/1kbfree/2dqkjyv4nuqlkmjkianj3b6j/image_1caufp0at1lt18k71uqkhg51eab3k.png" alt="image_1caufp0at1lt18k71uqkhg51eab3k.png-181.2kB"><br><em>多处用在<code>install.php</code>里，因为成功安装一次之后就能再一次运行安装了，除非将exit删除了。</em></p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="https://only-free.github.into" class="b-link-green">only_free blog</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/12/27/php-han-shu-tong-ji/" class="b-link-green">PHP函数统计</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'e4a00225a8ce0411166b',
+        clientSecret: '1d6d28b5dffe48a2a0c13a8417df522474c99103',
+        repo: 'only-free.github.io',
+        owner: 'only-free',
+        admin: "only-free",
+        id: '2018-12-27T02-55-04',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2018/12/27/xian-zhuang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="现状">
+                        
+                        <span class="card-title">现状</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/生活/" class="post-category" target="_blank">
+                                    生活
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/感慨/" target="_blank">
+                        <span class="chip bg-color">感慨</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/12/26/xin-xi-shou-ji-fu-zhu-jiao-ben-python3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="信息收集辅助脚本(python3)">
+                        
+                        <span class="card-title">信息收集辅助脚本(python3)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">腳本介紹脚本是博主自己写的，博主承认自己写的很烂，超级烂，不过还是慢慢的完善吧~目前可以有如下几点
+
+CMS识别
+子域名获取
+IP历史解析记录获取
+多线程
+输出人性化（输出的内容是.html，并且使用bootstrap框架写的虽然还是很丑但</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/编程/" class="post-category" target="_blank">
+                                    编程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python3/" target="_blank">
+                        <span class="chip bg-color">Python3</span>
+                    </a>
+                    
+                    <a href="/tags/信息收集/" target="_blank">
+                        <span class="chip bg-color">信息收集</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title">TOC</div>
+            <div id="toc-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            在心灵的深处，敞开的希望是自由。
+            <br> 本站总访问 <span id="busuanzi_value_site_pv"></span> 次
+        </div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="col s12 m4 l4 social-link"><a href="#!" class="tooltipped" target="_blank" data-tooltip="微信联系我：refuel_iamfree" data-position="top" data-delay="50">
+    <i class="fa fa-weixin"></i>
+</a>
+<a href="mailto:1900065568@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1900065568" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+</body>
+</html>
